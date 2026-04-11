@@ -27,16 +27,24 @@ const pillars = [
   },
   {
     title: 'Crisis Intervention',
-    description: 'Rapid-response support for learners experiencing acute personal crises, including family instability, trauma, and the pressures of navigating education in under-resourced environments.',
+    description: 'Rapid-response support for learners experiencing acute personal crises — including family instability, trauma, and the pressures of navigating education in under-resourced environments.',
   },
   {
     title: 'Mentorship',
-    description: 'Long-term mentorship relationships between UCT student volunteers and high school learners, focused on personal growth, goal-setting, and building confidence and resilience.',
+    description: 'Long-term mentorship relationships between UCT student volunteers and high school learners, focused on personal growth, goal-setting, building confidence, and resilience.',
   },
   {
-    title: 'Sustainable Structures',
-    description: 'The 2026 pilot is focused on building operational systems that outlast individual leadership cycles, ensuring Inkanyezi can sustain its impact regardless of volunteer turnover.',
+    title: 'Post-Matric Guidance',
+    description: 'Equipping learners with knowledge of tertiary options, bursaries, learnerships, and career pathways — giving them the tools to access opportunities beyond high school.',
   },
+];
+
+const timeline = [
+  { year: '2005', event: 'Inkanyezi founded by Rob Garlick through a donation from the Goldman Sachs Foundation Social Entrepreneurship Fund.' },
+  { year: '2006', event: 'Inkanyezi joins Ubunye alongside TeachOut and the Thethani Debating League, forming the umbrella organisation.' },
+  { year: '2010', event: 'Ubunye wins the MacJannet Prize for Global Citizenship — international recognition of student-led community impact.' },
+  { year: '2015', event: 'Inkanyezi at peak: 230 learners, 150 volunteers, active across 3 schools four days per week.' },
+  { year: '2026', event: 'Inkanyezi begins a structured year-long pilot to revive and rebuild operations around a sustainable psychosocial support model.' },
 ];
 
 export default function Ikanyezi() {
@@ -54,19 +62,16 @@ export default function Ikanyezi() {
     <main>
 
       {/* HERO */}
-      <section className="npo-hero" style={{ '--npo-colour': 'var(--blue)', '--npo-dark': '#1560a8' }}>
+      <section className="npo-hero">
         <div className="container npo-hero__inner">
           <Link to="/" className="npo-hero__back">Back to Ubunye</Link>
           <div className="npo-hero__badge" style={{ background: 'var(--blue)' }}>Inkanyezi</div>
-          <h1 className="npo-hero__title">
-            Let us shine.
-          </h1>
+          <h1 className="npo-hero__title">Let us shine.</h1>
           <p className="npo-hero__sub">
-            Inkanyezi provides mentorship, crisis support, and psychosocial care to
-            learners in under-resourced high schools in Khayelitsha, Cape Town.
-            After a period of dormancy, Inkanyezi is undergoing a full pilot revival
-            in 2026 &mdash; rebuilding towards a more responsive and sustainable model
-            of learner support.
+            Founded in 2005, Inkanyezi empowers learners in Cape Town&apos;s township schools
+            through mentorship, psychosocial support, and guidance on post-matric
+            opportunities. After a period of dormancy, Inkanyezi is undergoing a
+            structured pilot revival in 2026.
           </p>
           <div className="npo-hero__actions">
             <a href="#support" className="btn btn-primary">Support the Pilot</a>
@@ -74,15 +79,31 @@ export default function Ikanyezi() {
         </div>
       </section>
 
-      {/* PILOT NOTICE BANNER */}
+      {/* STATS BAR */}
+      <section className="npo-stats" style={{ background: 'var(--blue)' }}>
+        <div className="container npo-stats__inner">
+          {[
+            { number: '2005', label: 'Year founded' },
+            { number: '230',  label: 'Learners at peak' },
+            { number: '150',  label: 'Volunteers at peak' },
+            { number: '2026', label: 'Revival pilot year' },
+          ].map(s => (
+            <div key={s.label} className="npo-stats__item">
+              <span className="npo-stats__number">{s.number}</span>
+              <span className="npo-stats__label">{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* PILOT NOTICE */}
       <div className="ik-pilot-banner">
         <div className="container ik-pilot-banner__inner">
           <span className="ik-pilot-banner__icon">&#9432;</span>
           <p>
-            <strong>2026 Pilot Year:</strong> Inkanyezi is currently in a restructuring phase
-            and is not yet accepting volunteer applications. We expect to open volunteer
-            recruitment later in the year. If you are interested, register as a General
-            Ubunye Volunteer and we will be in touch.
+            <strong>2026 Pilot Year:</strong> Inkanyezi is currently restructuring and is not yet
+            accepting volunteer applications. Register as a General Ubunye Volunteer and we will
+            contact you when recruitment opens.
           </p>
           <Link to="/volunteer" className="btn btn-outline ik-pilot-banner__btn">
             Register Interest
@@ -90,58 +111,64 @@ export default function Ikanyezi() {
         </div>
       </div>
 
-      {/* ABOUT THE PILOT */}
+      {/* HISTORY + IMAGE */}
       <section className="section section--light">
         <div className="container npo-split">
           <div className="npo-split__text">
-            <span className="section-label" style={{ color: 'var(--blue)' }}>The 2026 Pilot</span>
-            <h2 className="section-title">Rebuilding for lasting impact.</h2>
+            <span className="section-label" style={{ color: 'var(--blue)' }}>Our History</span>
+            <h2 className="section-title">Two decades of shining a light.</h2>
             <p className="section-subtitle">
-              Inkanyezi was one of Ubunye&apos;s founding organisations, established in 2008 to
-              address the psychosocial and mentorship needs of learners in Cape Town&apos;s
-              township schools. After a period of dormancy, 2026 marks the beginning of
-              a structured, year-long revival.
+              Inkanyezi was founded in 2005 by Rob Garlick, made possible by a generous donation
+              from the Goldman Sachs Foundation&apos;s Social Entrepreneurship Fund. From the start,
+              Inkanyezi&apos;s purpose was to address the social needs of learners in Cape Town&apos;s
+              township schools — equipping them with mentorship, career guidance, and knowledge
+              of post-matric opportunities.
             </p>
             <p className="section-subtitle" style={{ marginTop: 16 }}>
-              Rather than simply resuming previous operations, the pilot is focused on
-              designing a fundamentally more sustainable and responsive model &mdash; one that
-              can withstand the transient nature of student leadership and respond
-              effectively to the real, complex needs of learners in Khayelitsha.
+              In late 2006, Inkanyezi joined Ubunye alongside TeachOut and the Thethani Debating
+              League. At its peak in 2015, Inkanyezi served 230 learners with 150 UCT volunteers,
+              visiting three schools four days every week.
             </p>
           </div>
-          <div className="npo-split__cards">
-            <div className="npo-info-card" style={{ '--card-accent': 'var(--blue)' }}>
-              <h3>Pilot Focus Areas</h3>
-              <ul>
-                <li>Operational restructuring and governance</li>
-                <li>Needs assessment with partner schools</li>
-                <li>Building a sustainable volunteer pipeline</li>
-                <li>Developing crisis response frameworks</li>
-                <li>Establishing psychosocial support protocols</li>
-              </ul>
-            </div>
-            <div className="npo-info-card" style={{ '--card-accent': 'var(--blue)' }}>
-              <h3>Current Status</h3>
-              <ul>
-                <li><strong>Location</strong><span>Khayelitsha, Cape Town</span></li>
-                <li><strong>Phase</strong><span>Pilot restructuring &mdash; Year 1</span></li>
-                <li><strong>Volunteers</strong><span>Recruitment opening later in 2026</span></li>
-                <li><strong>Duration</strong><span>Full 2026 school year</span></li>
-              </ul>
+
+          {/* IMAGE SLOT 1 — drop in your photo */}
+          <div className="img-slot">
+            <img src="/images/inkanyezi-session.jpg" alt="Inkanyezi mentorship session" className="img-slot__img"
+              onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
+            <div className="img-slot__fallback">
+              <p>Add photo here</p>
+              <small>Save image as: public/images/inkanyezi-session.jpg</small>
             </div>
           </div>
         </div>
       </section>
 
-      {/* WHAT INKANYEZI DOES */}
+      {/* TIMELINE */}
       <section className="section">
         <div className="container">
-          <span className="section-label" style={{ color: 'var(--blue)' }}>Our Approach</span>
-          <h2 className="section-title">Addressing what the classroom cannot.</h2>
+          <span className="section-label" style={{ color: 'var(--blue)' }}>Timeline</span>
+          <h2 className="section-title">From 2005 to today.</h2>
+          <div className="ik-timeline">
+            {timeline.map(t => (
+              <div key={t.year} className="ik-timeline__item">
+                <div className="ik-timeline__year">{t.year}</div>
+                <div className="ik-timeline__dot" />
+                <div className="ik-timeline__content">{t.event}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT WE DO */}
+      <section className="section section--light">
+        <div className="container">
+          <span className="section-label" style={{ color: 'var(--blue)' }}>The 2026 Pilot</span>
+          <h2 className="section-title">Rebuilding for lasting impact.</h2>
           <p className="section-subtitle" style={{ marginBottom: 48 }}>
-            Academic performance does not exist in isolation. Learners in under-resourced
-            schools face complex psychosocial pressures that directly affect their ability
-            to learn. Inkanyezi exists to address those pressures directly.
+            The 2026 pilot is not a return to previous operations. It is a ground-up redesign
+            focused on building systems that outlast individual leadership cycles and respond
+            meaningfully to the real, complex needs of learners in Khayelitsha.
           </p>
           <div className="ik-pillars">
             {pillars.map(p => (
@@ -151,20 +178,28 @@ export default function Ikanyezi() {
               </div>
             ))}
           </div>
+
+          {/* IMAGE SLOT 2 */}
+          <div className="img-slot img-slot--wide" style={{ marginTop: 48 }}>
+            <img src="/images/inkanyezi-team.jpg" alt="Inkanyezi volunteer team"
+              className="img-slot__img"
+              onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
+            <div className="img-slot__fallback">
+              <p>Add team photo here</p>
+              <small>Save image as: public/images/inkanyezi-team.jpg</small>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* HISTORY */}
+      {/* QUOTE */}
       <section className="npo-quote-section" style={{ background: 'var(--dark)' }}>
         <div className="container">
           <blockquote className="npo-quote">
-            &ldquo;Ubunye has a weekly impact on about 600 learners, and Inkanyezi has been
-            central to that &mdash; improving post-school prospects through mentorship and guidance.&rdquo;
+            &ldquo;We aim to enable learners to realise their potential and to impart
+            the philosophy of Ubuntu in the youth of South Africa.&rdquo;
           </blockquote>
-          <cite className="npo-quote__cite">
-            Duncan Clough, Ubunye Chairperson &mdash; UCT Monday Paper, 2010.
-            Ubunye won the MacJannet Prize for Global Citizenship that year.
-          </cite>
+          <cite className="npo-quote__cite">Inkanyezi Mission Statement &mdash; est. 2005</cite>
         </div>
       </section>
 
@@ -175,8 +210,8 @@ export default function Ikanyezi() {
           <h2 className="section-title">Invest in the revival.</h2>
           <p className="section-subtitle" style={{ marginBottom: 48 }}>
             The 2026 pilot requires dedicated funding to rebuild Inkanyezi&apos;s operational
-            foundation properly. Your contribution will directly support the restructuring
-            work that determines Inkanyezi&apos;s long-term impact.
+            foundation properly. Your contribution directly supports the restructuring work
+            that will determine Inkanyezi&apos;s long-term impact.
           </p>
           <div className="npo-packages">
             {packages.map(pkg => (

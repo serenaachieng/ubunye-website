@@ -1,0 +1,77 @@
+/* ── GLOBAL IMAGE SLOTS ─────────────────────────────────────────────
+   Add these to the bottom of your src/index.css file.
+   
+   HOW TO ADD PHOTOS TO YOUR SITE:
+   1. Create a folder called "images" inside your "public" folder
+   2. Drop your photo into public/images/
+   3. Reference it in JSX as: src="/images/yourphoto.jpg"
+   4. The fallback checkerboard disappears automatically once a real
+      image is found at that path.
+   ────────────────────────────────────────────────────────────────── */
+
+/* Generic image slot — use this class anywhere */
+.img-slot {
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  min-height: 280px;
+  background: #f0f0f0;
+}
+
+.img-slot--wide  { min-height: 360px; width: 100%; }
+.img-slot--tall  { min-height: 480px; }
+.img-slot--short { min-height: 200px; }
+
+.img-slot__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: inherit;
+}
+
+.img-slot__fallback {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  background: repeating-linear-gradient(
+    45deg,
+    #f5f5f5,
+    #f5f5f5 10px,
+    #ebebeb 10px,
+    #ebebeb 20px
+  );
+  border: 2px dashed #ccc;
+  border-radius: var(--radius);
+  text-align: center;
+  padding: 32px;
+  gap: 8px;
+}
+
+.img-slot__fallback p {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #999;
+}
+
+.img-slot__fallback small {
+  font-size: 0.75rem;
+  color: #bbb;
+  font-family: monospace;
+}
+
+/* ── PHOTO GRID — for multiple images side by side ── */
+.photo-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.photo-grid--2 { grid-template-columns: repeat(2, 1fr); }
+.photo-grid--3 { grid-template-columns: repeat(3, 1fr); }
+
+.photo-grid .img-slot {
+  min-height: 220px;
+}
