@@ -1,0 +1,78 @@
+/* ── INKANYEZI SPECIFIC STYLES ─────────────── */
+
+.ik-pilot-banner {
+  background: #EBF5FB;
+  border-bottom: 3px solid var(--blue);
+  padding: 20px 0;
+}
+
+.ik-pilot-banner__inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.ik-pilot-banner__icon {
+  font-size: 1.4rem;
+  color: var(--blue);
+  flex-shrink: 0;
+}
+
+.ik-pilot-banner__inner p {
+  flex: 1;
+  font-size: 0.9rem;
+  color: var(--dark);
+  line-height: 1.6;
+  min-width: 240px;
+}
+
+.ik-pilot-banner__inner p strong {
+  color: var(--blue);
+}
+
+.ik-pilot-banner__btn {
+  flex-shrink: 0;
+  color: var(--blue);
+  border-color: var(--blue);
+  font-size: 0.85rem;
+  padding: 10px 20px;
+}
+
+.ik-pilot-banner__btn:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+/* ── PILLARS GRID ──────────────────────────── */
+.ik-pillars {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.ik-pillar-card {
+  border-radius: var(--radius);
+  border: 2px solid #eee;
+  padding: 32px;
+  transition: var(--transition);
+  border-left: 4px solid var(--blue);
+}
+
+.ik-pillar-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+}
+
+.ik-pillar-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--dark);
+}
+
+.ik-pillar-card p {
+  font-size: 0.88rem;
+  color: var(--grey);
+  line-height: 1.7;
+}

@@ -1,0 +1,264 @@
+/* ── VOLUNTEER PAGE ────────────────────────── */
+
+/* shared form styles from Checkout.css also apply here */
+/* make sure Checkout.css is imported or duplicate the form styles below */
+
+.volunteer-hero {
+  background: var(--dark);
+  color: var(--white);
+  padding: 100px 0 80px;
+}
+
+.volunteer-hero__inner {
+  max-width: 680px;
+}
+
+.volunteer-hero__title {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 900;
+  color: var(--white);
+  margin: 16px 0 24px;
+  line-height: 1.1;
+}
+
+.volunteer-hero__sub {
+  font-size: 1.05rem;
+  color: #ccc;
+  line-height: 1.8;
+  max-width: 580px;
+}
+
+/* ── ROLE CARDS ────────────────────────────── */
+.volunteer-roles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.volunteer-role-card {
+  border-radius: var(--radius);
+  border: 2px solid #eee;
+  padding: 28px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.volunteer-role-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--role-colour);
+}
+
+.volunteer-role-card:hover {
+  border-color: var(--role-colour);
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+}
+
+.volunteer-role-card__npo {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--role-colour);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.volunteer-role-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.volunteer-role-card p {
+  font-size: 0.88rem;
+  color: var(--grey);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.volunteer-role-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.volunteer-role-card__meta > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.volunteer-role-card__meta strong {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--dark);
+  font-family: var(--font-heading);
+}
+
+.volunteer-role-card__meta span {
+  font-size: 0.85rem;
+  color: var(--grey);
+}
+
+/* ── FORM ──────────────────────────────────── */
+.volunteer-form-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.volunteer-form-header {
+  margin-bottom: 48px;
+}
+
+.vform-section-title {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--green);
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--green);
+  margin-bottom: 20px;
+}
+
+.volunteer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* reuse form-row, form-group, form-error, form-checkbox from Checkout */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--dark);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  color: var(--dark);
+  background: var(--white);
+  transition: var(--transition);
+  outline: none;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(46,204,17,0.12);
+}
+
+.form-group input.input-error,
+.form-group textarea.input-error,
+.form-group select.input-error {
+  border-color: var(--red);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-error {
+  font-size: 0.8rem;
+  color: var(--red);
+  font-weight: 600;
+}
+
+.volunteer-roles-check {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--grey);
+  cursor: pointer;
+}
+
+.form-checkbox input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--green);
+  flex-shrink: 0;
+}
+
+.volunteer-submit {
+  width: 100%;
+  padding: 16px;
+  font-size: 1rem;
+  margin-top: 8px;
+}
+
+/* ── SUCCESS STATE ─────────────────────────── */
+.volunteer-success {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.volunteer-success__inner {
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.volunteer-success__icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--green);
+  color: white;
+  font-size: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.volunteer-success__inner h1 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.volunteer-success__inner p {
+  color: var(--grey);
+  line-height: 1.7;
+}
