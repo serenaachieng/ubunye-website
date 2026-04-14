@@ -88,14 +88,14 @@ export default function Thethani() {
           {/* Photo: public/images/debate-workshop.jpg — coaching session */}
           <div className="npo-photo-wrap">
             <img
-              src="/images/TDL3.jpg"
+              src="/images/debate-workshop.jpg"
               alt="TDL debate coaching workshop"
               className="npo-photo"
               onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }}
             />
             <div className="img-slot__fallback">
               <p>Add workshop photo</p>
-              <small>public/images/TDL3.jpg</small>
+              <small>public/images/debate-workshop.jpg</small>
             </div>
           </div>
         </div>
@@ -108,14 +108,14 @@ export default function Thethani() {
           {/* Photo: public/images/debate-tournament.jpg — tournament day */}
           <div className="npo-photo-wrap">
             <img
-              src="/images/TDL2.jpg"
+              src="/images/debate-tournament.jpg"
               alt="TDL tournament day"
               className="npo-photo"
               onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }}
             />
             <div className="img-slot__fallback">
               <p>Add tournament photo</p>
-              <small>public/images/TDL2.jpg</small>
+              <small>public/images/debate-tournament.jpg</small>
             </div>
           </div>
 

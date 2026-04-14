@@ -19,9 +19,9 @@ const stats = [
 ];
 
 const programmes = [
-  { slug: 'ikanyezi', colour: 'var(--blue)',  icon: 'IK',  name: 'Inkanyezi',               tagline: 'Let Us Shine',                              img: '/images/Ikanyezi1.jpg', description: 'Founded in 2005, Inkanyezi provides mentorship, crisis support, and psychosocial care to learners in under-resourced Khayelitsha schools. Currently undergoing a structured 2026 pilot revival.' },
-  { slug: 'teachout', colour: 'var(--gold)',  icon: 'TO',  name: 'TeachOut',                 tagline: 'Free quality tutoring, every Saturday',     img: '/images/StudentsOneTeachOut.jpeg',  description: 'TeachOut provides free academic tutoring in English, Mathematics, Accounting, and Physics to learners at Usasazo High School and Beautiful Gate Centre.' },
-  { slug: 'thethani', colour: 'var(--red)',   icon: 'TDL', name: 'Thethani Debating League', tagline: "South Africa's largest outreach debating league", img: '/images/TDL1.jpg', description: "For 20 consecutive years, TDL has coached 100+ learners weekly across 10 Cape Town township schools in critical thinking, public speaking, and active citizenship." },
+  { slug: 'ikanyezi', colour: 'var(--blue)',  icon: 'IK',  name: 'Inkanyezi',               tagline: 'Let Us Shine',                              img: '/images/inkanyezi-session.jpg', description: 'Founded in 2005, Inkanyezi provides mentorship, crisis support, and psychosocial care to learners in under-resourced Khayelitsha schools. Currently undergoing a structured 2026 pilot revival.' },
+  { slug: 'teachout', colour: 'var(--gold)',  icon: 'TO',  name: 'TeachOut',                 tagline: 'Free quality tutoring, every Saturday',     img: '/images/teachout-session.jpg',  description: 'TeachOut provides free academic tutoring in English, Mathematics, Accounting, and Physics to learners at Usasazo High School and Beautiful Gate Centre.' },
+  { slug: 'thethani', colour: 'var(--red)',   icon: 'TDL', name: 'Thethani Debating League', tagline: "South Africa's largest outreach debating league", img: '/images/debate-tournament.jpg', description: "For 20 consecutive years, TDL has coached 100+ learners weekly across 10 Cape Town township schools in critical thinking, public speaking, and active citizenship." },
 ];
 
 function ImgWithFallback({ src, alt, fallbackText, fallbackPath, className }) {
@@ -123,14 +123,14 @@ export default function Home() {
           {/* Photo: public/images/about.jpg */}
           <div className="about__photo-wrap">
             <img
-              src="/images/CoverStudentTeachOut.jpeg"
+              src="/images/about.jpg"
               alt="Ubunye volunteers at UCT"
               className="about__photo-img"
               onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
             />
             <div className="img-slot__fallback">
               <p>Add volunteer photo here</p>
-              <small>public/images/CoverStudentTeachOut.jpeg</small>
+              <small>public/images/about.jpg</small>
             </div>
             <div className="about__quote-chip">
               <p>&ldquo;Our vision is to empower young people from disadvantaged communities to recognise their full potential.&rdquo;</p>

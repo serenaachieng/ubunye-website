@@ -57,14 +57,14 @@ export default function TeachOut() {
           {/* Photo: public/images/teachout-session.jpg — tutoring in action */}
           <div className="npo-photo-wrap">
             <img
-              src="/images/KatlegoTeachOut.jpeg"
+              src="/images/teachout-session.jpg"
               alt="TeachOut tutoring session"
               className="npo-photo"
               onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }}
             />
             <div className="img-slot__fallback">
               <p>Add tutoring session photo</p>
-              <small>public/images/KatlegoTeachOut.jpeg</small>
+              <small>public/images/teachout-session.jpg</small>
             </div>
           </div>
 
@@ -111,14 +111,14 @@ export default function TeachOut() {
           {/* Photo: public/images/teachout-learners.jpg — learners engaged */}
           <div className="npo-photo-wrap">
             <img
-              src="/images/StudentsTwoTeachOut.jpeg"
+              src="/images/teachout-learners.jpg"
               alt="TeachOut learners"
               className="npo-photo"
               onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }}
             />
             <div className="img-slot__fallback">
               <p>Add learners photo</p>
-              <small>public/images/StudentsTwoTeachOut.jpeg</small>
+              <small>public/images/teachout-learners.jpg</small>
             </div>
           </div>
         </div>

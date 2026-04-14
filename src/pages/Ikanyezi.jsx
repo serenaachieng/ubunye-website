@@ -181,12 +181,12 @@ export default function Ikanyezi() {
 
           {/* IMAGE SLOT 2 */}
           <div className="img-slot img-slot--wide" style={{ marginTop: 48 }}>
-            <img src="/images/inkanyezi-team.jpg" alt="Inkanyezi volunteer team"
+            <img src="/images/GroupPhoto.jpg" alt="Inkanyezi volunteer team"
               className="img-slot__img"
               onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
             <div className="img-slot__fallback">
               <p>Add team photo here</p>
-              <small>Save image as: public/images/inkanyezi-team.jpg</small>
+              <small>Save image as: public/images/GroupPhoto.jpg</small>
             </div>
           </div>
         </div>
