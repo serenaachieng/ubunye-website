@@ -108,14 +108,14 @@ export default function Thethani() {
           {/* Photo: public/images/debate-tournament.jpg — tournament day */}
           <div className="npo-photo-wrap">
             <img
-              src="/images/TDL2.jpg"
+              src="/images/DebatingBoy.JPG"
               alt="TDL tournament day"
               className="npo-photo"
               onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }}
             />
             <div className="img-slot__fallback">
               <p>Add tournament photo</p>
-              <small>public/images/TDL2.jpg</small>
+              <small>public/images/DebatingBoy.JPG</small>
             </div>
           </div>
 

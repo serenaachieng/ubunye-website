@@ -9,27 +9,23 @@
   overflow: hidden;
 }
 
-/* Background photo layer */
 .hero__bg {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  /* Fallback dark if no image */
   background-color: var(--dark);
-  transition: opacity 0.4s ease;
 }
 
-/* Dark overlay so text stays readable over any photo */
 .hero__overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     105deg,
-    rgba(0,0,0,0.78) 0%,
-    rgba(0,0,0,0.5) 55%,
-    rgba(0,0,0,0.25) 100%
+    rgba(0,0,0,0.82) 0%,
+    rgba(0,0,0,0.55) 55%,
+    rgba(0,0,0,0.28) 100%
   );
 }
 
@@ -50,7 +46,7 @@
 .hero__accent { color: var(--green); }
 
 .hero__sub {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: rgba(255,255,255,0.85);
   line-height: 1.8;
   max-width: 600px;
@@ -66,7 +62,7 @@
 
 .hero__press {
   font-size: 0.82rem;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.45);
 }
 
 .hero__press-link {
@@ -75,17 +71,14 @@
 }
 
 /* ── IMPACT BAR ────────────────────────────── */
-.impact-bar {
-  background: var(--green);
-  padding: 40px 0;
-}
+.impact-bar { background: #111; padding: 40px 0; }
 
 .impact-bar__inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 32px;
+  gap: 24px;
 }
 
 .impact-bar__stat {
@@ -94,27 +87,27 @@
   align-items: center;
   gap: 4px;
   flex: 1;
-  min-width: 100px;
+  min-width: 80px;
 }
 
 .impact-bar__number {
   font-family: var(--font-heading);
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   font-weight: 900;
-  color: var(--white);
+  color: var(--green);
   line-height: 1;
 }
 
 .impact-bar__label {
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  color: rgba(255,255,255,0.8);
+  color: #888;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   text-align: center;
 }
 
-/* ── ABOUT — split with photo ──────────────── */
+/* ── ABOUT ─────────────────────────────────── */
 .about {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -126,15 +119,13 @@
   position: relative;
   border-radius: var(--radius);
   overflow: hidden;
-  min-height: 420px;
 }
 
 .about__photo-img {
   width: 100%;
-  height: 420px;
+  height: 440px;
   object-fit: cover;
   display: block;
-  border-radius: var(--radius);
 }
 
 .img-slot__fallback {
@@ -142,14 +133,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 420px;
-  background: repeating-linear-gradient(
-    45deg,
-    #f5f5f5,
-    #f5f5f5 10px,
-    #ebebeb 10px,
-    #ebebeb 20px
-  );
+  height: 440px;
+  background: repeating-linear-gradient(45deg, #f5f5f5, #f5f5f5 10px, #ebebeb 10px, #ebebeb 20px);
   border: 2px dashed #ccc;
   border-radius: var(--radius);
   text-align: center;
@@ -157,29 +142,15 @@
   gap: 8px;
 }
 
-.img-slot__fallback p {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: #999;
-}
+.img-slot__fallback p  { font-family: var(--font-heading); font-weight: 700; font-size: 0.9rem; color: #999; }
+.img-slot__fallback small { font-size: 0.72rem; color: #bbb; font-family: monospace; }
 
-.img-slot__fallback small {
-  font-size: 0.75rem;
-  color: #bbb;
-  font-family: monospace;
-}
-
-/* Quote chip over the photo (F4E testimonial overlay pattern) */
 .about__quote-chip {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0,0,0,0.75);
-  backdrop-filter: blur(4px);
+  bottom: 0; left: 0; right: 0;
+  background: rgba(0,0,0,0.78);
+  backdrop-filter: blur(6px);
   padding: 20px 24px;
-  border-radius: 0 0 var(--radius) var(--radius);
 }
 
 .about__quote-chip p {
@@ -191,13 +162,55 @@
 }
 
 .about__quote-chip cite {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--green);
   font-weight: 700;
   font-family: var(--font-heading);
 }
 
-/* ── PROGRAMMES — photo cards ──────────────── */
+/* ── NPO LOGOS STRIP ───────────────────────── */
+.npo-logos-strip {
+  background: var(--light);
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 28px 0;
+}
+
+.npo-logos-strip__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.npo-logos-strip__label {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #bbb;
+}
+
+.npo-logos-strip__item {
+  opacity: 0.65;
+  transition: opacity 0.2s ease, filter 0.2s ease;
+  filter: grayscale(40%);
+}
+
+.npo-logos-strip__item:hover {
+  opacity: 1;
+  filter: none;
+}
+
+.npo-logos-strip__item img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ── PROGRAMMES ─────────────────────────────── */
 .programmes__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -210,9 +223,8 @@
   overflow: hidden;
   transition: var(--transition);
   display: block;
-  text-decoration: none;
   color: inherit;
-  cursor: pointer;
+  background: var(--white);
 }
 
 .programme-card:hover {
@@ -221,7 +233,6 @@
   border-color: var(--card-colour);
 }
 
-/* Photo at top of card */
 .programme-card__photo {
   position: relative;
   height: 200px;
@@ -234,11 +245,11 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.4s ease;
+  transition: transform 0.45s ease;
 }
 
 .programme-card:hover .programme-card__photo img {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .programme-card__fallback {
@@ -249,34 +260,39 @@
   background: repeating-linear-gradient(45deg, #f0f0f0, #f0f0f0 10px, #e8e8e8 10px, #e8e8e8 20px);
   font-family: var(--font-heading);
   font-weight: 700;
-  color: #bbb;
-  font-size: 0.9rem;
+  color: #ccc;
+  font-size: 0.85rem;
 }
 
-/* Badge overlay on photo */
 .programme-card__overlay {
   position: absolute;
   bottom: 12px;
   left: 12px;
 }
 
+.programme-card__logo {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  display: block;
+}
+
 .programme-card__icon-badge {
   display: inline-block;
-  padding: 4px 12px;
+  padding: 4px 10px;
   border-radius: 4px;
   font-family: var(--font-heading);
   font-weight: 900;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--white);
   letter-spacing: 0.1em;
 }
 
-.programme-card__body {
-  padding: 24px;
-}
+.programme-card__body { padding: 24px; }
 
 .programme-card__tag {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -285,14 +301,10 @@
   font-family: var(--font-heading);
 }
 
-.programme-card__name {
-  font-size: 1.2rem;
-  font-weight: 900;
-  margin-bottom: 10px;
-}
+.programme-card__name { font-size: 1.15rem; font-weight: 900; margin-bottom: 10px; }
 
 .programme-card__desc {
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   color: var(--grey);
   line-height: 1.7;
   margin-bottom: 16px;
@@ -301,8 +313,7 @@
 .programme-card__link {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 0.88rem;
-  transition: var(--transition);
+  font-size: 0.85rem;
 }
 
 /* ── PACKAGES ───────────────────────────────── */
@@ -328,63 +339,16 @@
   border-color: var(--pkg-colour);
 }
 
-.package-card__header {
-  background: var(--pkg-colour);
-  padding: 10px 20px;
-}
-
-.package-card__npo {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.72rem;
-  color: var(--white);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.package-card__title {
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 18px 20px 8px;
-}
-
-.package-card__desc {
-  font-size: 0.85rem;
-  color: var(--grey);
-  line-height: 1.6;
-  padding: 0 20px 10px;
-  flex: 1;
-}
-
-.package-card__impact {
-  font-size: 0.8rem;
-  font-weight: 600;
-  font-style: italic;
-  color: var(--dark);
-  padding: 0 20px 14px;
-}
-
-.package-card__footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 20px;
-  border-top: 1px solid #eee;
-  gap: 10px;
-}
-
-.package-card__price {
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
-  font-weight: 900;
-  color: var(--dark);
-}
+.package-card__header { background: var(--pkg-colour); padding: 10px 20px; }
+.package-card__npo    { font-family: var(--font-heading); font-weight: 700; font-size: 0.7rem; color: var(--white); text-transform: uppercase; letter-spacing: 0.1em; }
+.package-card__title  { font-size: 0.95rem; font-weight: 700; padding: 16px 20px 8px; }
+.package-card__desc   { font-size: 0.82rem; color: var(--grey); line-height: 1.6; padding: 0 20px 10px; flex: 1; }
+.package-card__impact { font-size: 0.78rem; font-weight: 600; font-style: italic; color: var(--dark); padding: 0 20px 12px; }
+.package-card__footer { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-top: 1px solid #eee; gap: 10px; }
+.package-card__price  { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 900; color: var(--dark); }
 
 /* ── VOLUNTEER CTA ─────────────────────────── */
-.volunteer-cta {
-  background: var(--dark);
-  padding: 80px 0;
-}
+.volunteer-cta { background: var(--dark); padding: 80px 0; }
 
 .volunteer-cta__inner {
   display: flex;
@@ -394,17 +358,6 @@
   flex-wrap: wrap;
 }
 
-.volunteer-cta__title {
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  color: var(--white);
-  margin-bottom: 12px;
-}
-
-.volunteer-cta__sub {
-  color: #aaa;
-  font-size: 1rem;
-  line-height: 1.7;
-  max-width: 560px;
-}
-
-.volunteer-cta__btn { flex-shrink: 0; }
+.volunteer-cta__title { font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--white); margin-bottom: 12px; }
+.volunteer-cta__sub   { color: #aaa; font-size: 1rem; line-height: 1.7; max-width: 540px; }
+.volunteer-cta__btn   { flex-shrink: 0; }

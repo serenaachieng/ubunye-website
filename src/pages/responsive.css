@@ -1,0 +1,152 @@
+/* ============================================
+   RESPONSIVE.CSS
+   Add this to src/ and import in main.jsx
+   Covers all breakpoints for all pages
+   ============================================ */
+
+/* ── TABLET (≤ 1024px) ─────────────────────── */
+@media (max-width: 1024px) {
+
+  /* Layout */
+  .container { padding: 0 20px; }
+  .section    { padding: 72px 0; }
+
+  /* Home */
+  .about            { grid-template-columns: 1fr; gap: 40px; }
+  .about__photo-wrap { min-height: 320px; }
+  .about__photo-img  { height: 320px; }
+  .programmes__grid  { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .packages__grid    { grid-template-columns: 1fr 1fr; }
+
+  /* NPO pages */
+  .npo-split         { grid-template-columns: 1fr; gap: 40px; }
+  .npo-split--reverse { direction: ltr; }
+  .npo-photo-wrap    { min-height: 280px; }
+  .npo-photo         { min-height: 280px; }
+  .npo-priorities    { grid-template-columns: 1fr 1fr; }
+
+  /* Calculator */
+  .calc-wrap         { grid-template-columns: 1fr; }
+  .calc-impact-display { grid-column: 1; }
+  .calc-ladder       { grid-column: 1; }
+  .calc-ladder__items { grid-template-columns: repeat(2, 1fr); }
+
+  /* Checkout & Cart */
+  .checkout-page__layout { grid-template-columns: 1fr; }
+  .checkout-summary { position: static; }
+  .cart-page__layout     { grid-template-columns: 1fr; }
+  .cart-summary     { position: static; }
+
+  /* Footer */
+  .footer__inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+
+  /* Support banking */
+  .support-banking { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* ── MOBILE (≤ 720px) ──────────────────────── */
+@media (max-width: 720px) {
+
+  /* Typography */
+  .section-title { font-size: 1.8rem; }
+
+  /* Layout */
+  .section { padding: 56px 0; }
+
+  /* Hero */
+  .hero { min-height: 80vh; padding: 100px 0 72px; }
+  .hero__title { font-size: 2rem; }
+  .hero__sub   { font-size: 0.95rem; }
+  .hero__actions { flex-direction: column; align-items: flex-start; }
+  .hero__actions .btn { width: 100%; text-align: center; }
+
+  /* Impact bar */
+  .impact-bar__inner { justify-content: space-around; gap: 20px; }
+  .impact-bar__number { font-size: 1.8rem; }
+
+  /* About */
+  .about { grid-template-columns: 1fr; }
+  .about__photo-img { height: 260px; }
+
+  /* Programmes */
+  .programmes__grid { grid-template-columns: 1fr; }
+  .programme-card__photo { height: 180px; }
+
+  /* Packages */
+  .packages__grid { grid-template-columns: 1fr; }
+
+  /* Volunteer CTA */
+  .volunteer-cta__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .volunteer-cta__btn { width: 100%; text-align: center; }
+
+  /* NPO pages */
+  .npo-hero { padding: 80px 0 60px; }
+  .npo-hero__title { font-size: 1.8rem; }
+  .npo-hero__actions { flex-direction: column; }
+  .npo-hero__actions .btn { width: 100%; text-align: center; }
+  .npo-stats__inner { justify-content: space-around; }
+  .npo-priorities   { grid-template-columns: 1fr; }
+  .npo-packages     { grid-template-columns: 1fr; }
+  .schools-grid     { grid-template-columns: 1fr 1fr; }
+
+  /* Ikanyezi */
+  .ik-pillars { grid-template-columns: 1fr; }
+  .ik-timeline__item { grid-template-columns: 56px 16px 1fr; gap: 0 10px; }
+  .ik-pilot-banner__inner { flex-direction: column; align-items: flex-start; }
+
+  /* Calculator */
+  .calc-hero__title { font-size: 1.8rem; }
+  .calc-wrap  { grid-template-columns: 1fr; gap: 24px; }
+  .calc-input-area { padding: 24px; }
+  .calc-amount-input { font-size: 1.8rem; }
+  .calc-currency     { font-size: 1.8rem; }
+  .calc-ladder__items { grid-template-columns: 1fr; }
+  .calc-quick { gap: 6px; }
+  .calc-quick-btn { font-size: 0.72rem; padding: 5px 10px; }
+  .calc-cta__inner { flex-direction: column; text-align: center; }
+  .calc-cta__actions { width: 100%; justify-content: center; }
+
+  /* Cart */
+  .cart-item { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .cart-item__controls { width: 100%; justify-content: space-between; }
+  .cart-page__header { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+  /* Checkout */
+  .form-row { grid-template-columns: 1fr; }
+  .checkout-submit { font-size: 0.95rem; }
+
+  /* Volunteer */
+  .volunteer-roles { grid-template-columns: 1fr; }
+  .volunteer-roles-check { grid-template-columns: 1fr; }
+
+  /* Support */
+  .support-packages-grid { grid-template-columns: 1fr; }
+  .support-filters { gap: 6px; }
+  .support-filter-btn { padding: 8px 16px; font-size: 0.78rem; }
+  .wishlist-strip__inner { flex-direction: column; align-items: flex-start; }
+  .support-cart-cta__inner { flex-direction: column; text-align: center; gap: 12px; }
+  .support-cart-cta__inner .btn { width: 100%; text-align: center; }
+
+  /* Footer */
+  .footer__inner { grid-template-columns: 1fr; gap: 32px; }
+  .footer__brand p { font-size: 0.85rem; }
+}
+
+/* ── SMALL MOBILE (≤ 420px) ────────────────── */
+@media (max-width: 420px) {
+  .container { padding: 0 16px; }
+  .section-title { font-size: 1.5rem; }
+  .btn { padding: 12px 24px; font-size: 0.88rem; }
+  .hero__title { font-size: 1.7rem; }
+  .impact-bar__inner { gap: 12px; }
+  .impact-bar__number { font-size: 1.5rem; }
+  .impact-bar__label  { font-size: 0.68rem; }
+  .schools-grid { grid-template-columns: 1fr; }
+  .npo-stats__inner { gap: 16px; }
+  .npo-stats__number { font-size: 1.6rem; }
+  .packages__grid { grid-template-columns: 1fr; }
+  .about__photo-img { height: 220px; }
+}

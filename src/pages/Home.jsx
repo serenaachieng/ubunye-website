@@ -3,11 +3,11 @@ import { useCart } from '../context/CartContext';
 import './Home.css';
 
 const packages = [
-  { id: 'pkg-1', npo: 'TeachOut', colour: 'var(--gold)', title: 'Fund One Tutoring Day', description: 'Cover transport and materials for one Saturday tutoring session at Usasazo High School or Beautiful Gate Centre.', price: 350, impact: 'Supports up to 30 learners for a full day' },
-  { id: 'pkg-2', npo: 'Thethani Debating League', colour: 'var(--red)', title: 'Sponsor a Debate Workshop', description: 'Fund one week of bi-weekly debate coaching workshops for 100+ learners across Cape Town townships.', price: 3500, impact: '100+ learners coached across 10 schools' },
-  { id: 'pkg-3', npo: 'Thethani Debating League', colour: 'var(--red)', title: 'Sponsor a Tournament', description: 'Fund a full-day tournament including transport reimbursements, lunch packs, and certificates for 120 learners.', price: 6800, impact: '120 learners compete on a day they will remember' },
-  { id: 'pkg-4', npo: 'Inkanyezi', colour: 'var(--blue)', title: 'Pilot Programme Support', description: 'Support the revival of Inkanyezi, funding mentorship and psychosocial support for learners in Khayelitsha.', price: 2000, impact: 'Directly funds student mentor training and materials' },
-  { id: 'pkg-5', npo: 'Ubunye', colour: 'var(--green)', title: 'General Annual Fund', description: 'Contribute to Ubunye general annual budget, covering all three NPOs across the 2026 school year.', price: 5000, impact: 'Sustains 3 NPOs, 10 schools, 100+ learners weekly' },
+  { id: 'pkg-1', npo: 'TeachOut',              colour: 'var(--gold)', title: 'Fund One Tutoring Day',    description: 'Cover transport and materials for one Saturday tutoring session at Usasazo High School or Beautiful Gate Centre.', price: 350,  impact: 'Supports up to 30 learners for a full day' },
+  { id: 'pkg-2', npo: 'Thethani Debating League', colour: 'var(--red)',  title: 'Sponsor a Debate Workshop', description: 'Fund one week of bi-weekly debate coaching workshops for 100+ learners across Cape Town townships.', price: 3500, impact: '100+ learners coached across 10 schools' },
+  { id: 'pkg-3', npo: 'Thethani Debating League', colour: 'var(--red)',  title: 'Sponsor a Tournament',      description: 'Fund a full-day tournament including transport reimbursements, lunch packs, and certificates for 120 learners.', price: 6800, impact: '120 learners compete on a day they will remember' },
+  { id: 'pkg-4', npo: 'Inkanyezi',             colour: 'var(--blue)', title: 'Pilot Programme Support',  description: 'Support the revival of Inkanyezi, funding mentorship and psychosocial support for learners in Khayelitsha.', price: 2000, impact: 'Directly funds student mentor training and materials' },
+  { id: 'pkg-5', npo: 'Ubunye',                colour: 'var(--green)',title: 'General Annual Fund',      description: 'Contribute to Ubunye general annual budget, covering all three NPOs across the 2026 school year.', price: 5000, impact: 'Sustains 3 NPOs, 10 schools, 100+ learners weekly' },
 ];
 
 const stats = [
@@ -19,45 +19,22 @@ const stats = [
 ];
 
 const programmes = [
-  { slug: 'ikanyezi', colour: 'var(--blue)',  icon: 'IK',  name: 'Inkanyezi',               tagline: 'Let Us Shine',                              img: '/images/Ikanyezi1.jpg', description: 'Founded in 2005, Inkanyezi provides mentorship, crisis support, and psychosocial care to learners in under-resourced Khayelitsha schools. Currently undergoing a structured 2026 pilot revival.' },
-  { slug: 'teachout', colour: 'var(--gold)',  icon: 'TO',  name: 'TeachOut',                 tagline: 'Free quality tutoring, every Saturday',     img: '/images/StudentsOneTeachOut.jpeg',  description: 'TeachOut provides free academic tutoring in English, Mathematics, Accounting, and Physics to learners at Usasazo High School and Beautiful Gate Centre.' },
-  { slug: 'thethani', colour: 'var(--red)',   icon: 'TDL', name: 'Thethani Debating League', tagline: "South Africa's largest outreach debating league", img: '/images/TDL1.jpg', description: "For 20 consecutive years, TDL has coached 100+ learners weekly across 10 Cape Town township schools in critical thinking, public speaking, and active citizenship." },
+  { slug: 'ikanyezi', colour: 'var(--blue)',  logo: '/images/inkanyezi-logo.png',  name: 'Inkanyezi',               tagline: 'Let Us Shine',                           img: '/images/Ikanyezi1.jpg', description: 'Founded in 2005, Inkanyezi provides mentorship, crisis support, and psychosocial care to learners in Khayelitsha. Currently undergoing a structured 2026 pilot revival.' },
+  { slug: 'teachout', colour: 'var(--gold)',  logo: '/images/teachout-logo.png',   name: 'TeachOut',                tagline: 'Free quality tutoring, every Saturday',    img: '/images/StudentsOneTeachOut.jpeg',  description: 'TeachOut provides free academic tutoring in English, Mathematics, Accounting, and Physics to learners at Usasazo High School and Beautiful Gate Centre.' },
+  { slug: 'thethani', colour: 'var(--red)',   logo: '/images/thethani-logo.png',   name: 'Thethani Debating League',tagline: "South Africa's largest outreach debating league", img: '/images/TDL1.jpg', description: "For 20 consecutive years, TDL has coached 100+ learners weekly across 10 Cape Town township schools in critical thinking and public speaking." },
 ];
-
-function ImgWithFallback({ src, alt, fallbackText, fallbackPath, className }) {
-  return (
-    <div className="img-slot">
-      <img
-        src={src}
-        alt={alt}
-        className={className}
-        onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
-      />
-      <div className="img-slot__fallback">
-        <p>{fallbackText || 'Add photo here'}</p>
-        {fallbackPath && <small>{fallbackPath}</small>}
-      </div>
-    </div>
-  );
-}
 
 export default function Home() {
   const { addToCart, cartItems } = useCart();
-
-  function handleAdd(pkg) {
-    addToCart({ id: pkg.id, title: pkg.title, npo: pkg.npo, price: pkg.price });
-  }
-
-  function isInCart(id) {
-    return cartItems.some(i => i.id === id);
-  }
+  function handleAdd(pkg) { addToCart({ id: pkg.id, title: pkg.title, npo: pkg.npo, price: pkg.price }); }
+  function isInCart(id)   { return cartItems.some(i => i.id === id); }
 
   return (
     <main>
 
-      {/* HERO — full-width photo background */}
+      {/* HERO — background photo */}
       <section className="hero">
-        <div className="hero__bg" style={{ backgroundImage: 'url(/images/hero.jpg)' }} />
+        <div className="hero__bg" style={{ backgroundImage: 'url(/images/StudentsTwoTeachOut.jpeg)' }} />
         <div className="hero__overlay" />
         <div className="container hero__inner">
           <span className="section-label" style={{ color: 'rgba(255,255,255,0.7)' }}>
@@ -74,7 +51,7 @@ export default function Home() {
           </p>
           <div className="hero__actions">
             <Link to="/support-us" className="btn btn-primary">Support Our Work</Link>
-            <Link to="/volunteer" className="btn btn-outline">Volunteer With Us</Link>
+            <Link to="/volunteer"  className="btn btn-outline">Volunteer With Us</Link>
           </div>
           <p className="hero__press">
             Featured in{' '}
@@ -85,6 +62,9 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      
+      
 
       {/* IMPACT BAR */}
       <section className="impact-bar">
@@ -98,7 +78,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ABOUT — text left, photo right (F4E split pattern) */}
+      {/* ABOUT — text left, photo right */}
       <section className="section section--light">
         <div className="container about">
           <div className="about__text">
@@ -120,13 +100,12 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Photo: public/images/about.jpg */}
           <div className="about__photo-wrap">
             <img
               src="/images/CoverStudentTeachOut.jpeg"
-              alt="Ubunye volunteers at UCT"
+              alt="Ubunye volunteers"
               className="about__photo-img"
-              onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+              onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }}
             />
             <div className="img-slot__fallback">
               <p>Add volunteer photo here</p>
@@ -134,13 +113,30 @@ export default function Home() {
             </div>
             <div className="about__quote-chip">
               <p>&ldquo;Our vision is to empower young people from disadvantaged communities to recognise their full potential.&rdquo;</p>
-              <cite>Oshiannahy Rakgoale, Deputy Chairperson</cite>
+              <cite>Oshiannahy Rakgoale, Deputy Chairperson &mdash; UCT News 2026</cite>
             </div>
           </div>
         </div>
       </section>
 
-      {/* PROGRAMMES — photo cards (F4E media card pattern) */}
+      {/* NPO LOGOS STRIP */}
+      <section className="npo-logos-strip">
+        <div className="container npo-logos-strip__inner">
+          <span className="npo-logos-strip__label">Our programmes</span>
+          {programmes.map(p => (
+            <Link to={"/" + p.slug} key={p.slug} className="npo-logos-strip__item" title={p.name}>
+              <img
+                src={p.logo}
+                alt={p.name}
+                onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='block'; }}
+              />
+              <span style={{ display: 'none', fontFamily: 'var(--font-heading)', fontWeight: 700, color: p.colour }}>{p.name}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* PROGRAMMES — photo cards */}
       <section className="section">
         <div className="container">
           <span className="section-label">Our Programmes</span>
@@ -155,14 +151,20 @@ export default function Home() {
                 <div className="programme-card__photo">
                   <img
                     src={p.img}
-                    alt={p.name + ' programme'}
-                    onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+                    alt={p.name}
+                    onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }}
                   />
-                  <div className="programme-card__fallback">
-                    <span>{p.name}</span>
-                  </div>
+                  <div className="programme-card__fallback"><span>{p.name} photo</span></div>
                   <div className="programme-card__overlay">
-                    <span className="programme-card__icon-badge" style={{ background: p.colour }}>{p.icon}</span>
+                    <img
+                      src={p.logo}
+                      alt={p.name}
+                      className="programme-card__logo"
+                      onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='block'; }}
+                    />
+                    <span className="programme-card__icon-badge" style={{ background: p.colour, display: 'none' }}>
+                      {p.name.substring(0,2).toUpperCase()}
+                    </span>
                   </div>
                 </div>
                 <div className="programme-card__body">
@@ -183,8 +185,8 @@ export default function Home() {
           <span className="section-label">Support Us</span>
           <h2 className="section-title">Every rand makes a difference.</h2>
           <p className="section-subtitle" style={{ marginBottom: 56 }}>
-            Choose a sponsorship package below. No payment gateway required &mdash; you submit
-            a pledge and our team will be in touch to finalise your contribution.
+            Choose a sponsorship package below. No payment gateway required &mdash; you
+            submit a pledge and our team will be in touch to finalise your contribution.
           </p>
           <div className="packages__grid">
             {packages.map(pkg => (

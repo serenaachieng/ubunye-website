@@ -1,0 +1,120 @@
+/* ── ANIMATED TICKER BAND ──────────────────── */
+.ticker {
+  background: var(--green);
+  overflow: hidden;
+  padding: 14px 0;
+  border-top: 2px solid rgba(255,255,255,0.15);
+  border-bottom: 2px solid rgba(255,255,255,0.15);
+  cursor: default;
+  user-select: none;
+}
+
+.ticker__track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: max-content;
+  animation: ticker-scroll 40s linear infinite;
+}
+
+/* Pause on hover */
+.ticker:hover .ticker__track {
+  animation-play-state: paused;
+}
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.ticker__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 32px;
+  white-space: nowrap;
+}
+
+.ticker__value {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: var(--white);
+  letter-spacing: 0.02em;
+}
+
+.ticker__sep {
+  color: rgba(255,255,255,0.4);
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.ticker__label {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.85);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.ticker__dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  margin-left: 16px;
+}
+
+/* Fade edges */
+.ticker::before,
+.ticker::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.ticker::before {
+  left: 0;
+  background: linear-gradient(to right, var(--green), transparent);
+}
+
+.ticker::after {
+  right: 0;
+  background: linear-gradient(to left, var(--green), transparent);
+}
+
+.ticker {
+  position: relative;
+}
+
+/* ── LOGO STRIP (for partners section) ─────── */
+.logo-strip {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.logo-strip__item {
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+  filter: grayscale(100%);
+}
+
+.logo-strip__item:hover {
+  opacity: 1;
+  filter: none;
+}
+
+.logo-strip__item img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}

@@ -133,11 +133,11 @@ export default function Ikanyezi() {
 
           {/* IMAGE SLOT 1 — drop in your photo */}
           <div className="img-slot">
-            <img src="/images/Inkanyezi3.jpg" alt="Inkanyezi mentorship session" className="img-slot__img"
+            <img src="/images/StudentsGroupPhoto.JPG" alt="Inkanyezi mentorship session" className="img-slot__img"
               onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
             <div className="img-slot__fallback">
               <p>Add photo here</p>
-              <small>Save image as: public/images/Inkanyezi3.jpg</small>
+              <small>Save image as: public/images/StudentsGroupPhoto.JPG</small>
             </div>
           </div>
         </div>
