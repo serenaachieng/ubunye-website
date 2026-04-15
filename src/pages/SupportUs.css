@@ -19,7 +19,7 @@
 }
 
 .support-hero__sub {
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
   color: #ccc;
   line-height: 1.8;
   max-width: 620px;
@@ -157,9 +157,10 @@
 }
 
 /* ── PACKAGES GRID ─────────────────────────── */
+/* auto-fill minmax: 3 col desktop → 2 col tablet → 1 col mobile */
 .support-packages-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 24px;
 }
 
@@ -243,6 +244,7 @@
   padding: 16px 20px;
   border-top: 1px solid #eee;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 .support-pkg-price {
@@ -253,10 +255,11 @@
 }
 
 /* ── BANKING ───────────────────────────────── */
+/* auto-fit minmax: 2 col desktop → 1 col mobile */
 .support-banking {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 72px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 48px;
   align-items: start;
 }
 
@@ -284,14 +287,8 @@
   font-size: 0.9rem;
 }
 
-.banking-row span {
-  color: var(--grey);
-}
-
-.banking-row strong {
-  color: var(--dark);
-  font-weight: 700;
-}
+.banking-row span   { color: var(--grey); }
+.banking-row strong { color: var(--dark); font-weight: 700; }
 
 .banking-note {
   margin-top: 16px;
@@ -317,6 +314,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  flex-wrap: wrap;
 }
 
 .support-cart-cta__inner span {
@@ -324,4 +322,22 @@
   font-size: 0.9rem;
   font-family: var(--font-heading);
   font-weight: 600;
+}
+
+/* ── MOBILE OVERRIDES (only what minmax can't handle alone) ── */
+@media (max-width: 600px) {
+  .support-hero { padding: 80px 0 56px; }
+
+  .support-hero__trust { gap: 12px; }
+
+  .wishlist-strip__inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+
+  .support-filters { gap: 6px; }
+  .support-filter-btn { padding: 7px 12px; font-size: 0.76rem; }
+
+  .support-pkg-footer { flex-direction: column; align-items: flex-start; }
+  .support-pkg-footer .btn { width: 100%; text-align: center; }
+
+  .support-cart-cta__inner { flex-direction: column; text-align: center; gap: 12px; }
+  .support-cart-cta__inner .btn { width: 100%; text-align: center; }
 }

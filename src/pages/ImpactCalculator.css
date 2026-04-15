@@ -33,17 +33,17 @@
 .calc-hero__accent { color: var(--green); }
 
 .calc-hero__sub {
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
   color: #ccc;
   line-height: 1.8;
   max-width: 580px;
 }
 
 /* ── CALCULATOR LAYOUT ─────────────────────── */
+/* 2 col on desktop, 1 col on mobile via auto-fit */
 .calc-wrap {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 40px;
 }
 
@@ -53,7 +53,6 @@
   border-radius: var(--radius);
   padding: 40px;
   box-shadow: var(--shadow);
-  grid-column: 1;
 }
 
 .calc-input-label {
@@ -206,7 +205,7 @@
 
 /* ── IMPACT DISPLAY ────────────────────────── */
 .calc-impact-display {
-  grid-column: 2;
+  /* sits naturally in the auto-fit grid — no fixed grid-column needed */
 }
 
 .calc-impact-card {
@@ -226,6 +225,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .calc-impact-card__npo {
@@ -250,7 +251,7 @@
 }
 
 .calc-impact-card__label {
-  font-size: 1.4rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
   font-weight: 900;
   color: var(--dark);
   line-height: 1.2;
@@ -297,6 +298,7 @@
 }
 
 /* ── LADDER ────────────────────────────────── */
+/* spans full width by always being last in auto-fit grid */
 .calc-ladder {
   grid-column: 1 / -1;
 }
@@ -311,9 +313,10 @@
   font-family: var(--font-heading);
 }
 
+/* auto-fill: 3 col desktop → 2 col tablet → 1 col mobile */
 .calc-ladder__items {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 12px;
 }
 
@@ -328,6 +331,7 @@
   cursor: pointer;
   transition: var(--transition);
   text-align: left;
+  width: 100%;
 }
 
 .calc-ladder__item:hover {
@@ -398,17 +402,34 @@
 }
 
 .calc-cta__inner h2 {
-  font-size: 1.8rem;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
   color: var(--white);
   margin-bottom: 8px;
 }
 
-.calc-cta__inner p {
-  color: #aaa;
-}
+.calc-cta__inner p { color: #aaa; }
 
 .calc-cta__actions {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+}
+
+/* ── MOBILE OVERRIDES (only what auto-fit can't handle alone) ── */
+@media (max-width: 600px) {
+  .calc-hero { padding: 80px 0 56px; }
+
+  .calc-input-area { padding: 24px 18px; }
+
+  .calc-amount-input { font-size: 1.8rem; }
+  .calc-currency     { font-size: 1.8rem; }
+
+  .calc-quick     { gap: 6px; }
+  .calc-quick-btn { font-size: 0.72rem; padding: 5px 10px; }
+
+  .calc-impact-card__actions { flex-direction: column; }
+  .calc-impact-card__actions .btn { width: 100%; text-align: center; }
+
+  .calc-cta__inner { flex-direction: column; text-align: center; }
+  .calc-cta__actions { justify-content: center; width: 100%; }
 }
