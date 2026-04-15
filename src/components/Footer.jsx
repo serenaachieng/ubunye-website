@@ -43,15 +43,14 @@ export default function Footer() {
             <li>
               <a href="mailto:tdluct@gmail.com">tdluct@gmail.com</a>
             </li>
-            <li>NPO: 061-733-NPO</li>
-            <li>PBO: 070000190</li>
+            
           </ul>
         </div>
 
       </div>
       <div className="footer__bottom">
         <p>
-          &copy; {new Date().getFullYear()} Ubunye Development Agency &middot; UCT Social Enterprise &middot; Founded 2008
+          &copy; {new Date().getFullYear()} Ubunye Development Agency is a UCT based registered non-profit organization &middot; NPO: 061-733-NPO  &middot; Founded 2008
         </p>
       </div>
     </footer>

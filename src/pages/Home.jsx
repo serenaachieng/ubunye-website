@@ -39,9 +39,7 @@ export default function Home() {
         <div className="hero__bg" style={{ backgroundImage: 'url(/images/StudentsTwoTeachOut.jpeg)' }} />
         <div className="hero__overlay" />
         <div className="container hero__inner">
-          <span className="section-label" style={{ color: 'rgba(255,255,255,0.7)' }}>
-            UCT Social Enterprise &middot; NPO 061-733 &middot; Est. 2008
-          </span>
+          
           <h1 className="hero__title">
             Empowering Cape Town&apos;s Youth,{' '}
             <span className="hero__accent">Together.</span>
