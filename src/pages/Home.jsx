@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import Ticker from '../components/Ticker';
 import './Home.css';
 
 const packages = [
@@ -32,7 +33,7 @@ export default function Home() {
   return (
     <main>
 
-      {/* HERO — background photo */}
+      {/* HERO */}
       <section className="hero">
         <div className="hero__bg" style={{ backgroundImage: 'url(/images/StudentsTwoTeachOut.jpeg)' }} />
         <div className="hero__overlay" />
@@ -63,8 +64,8 @@ export default function Home() {
         </div>
       </section>
 
-      
-      
+      {/* ANIMATED TICKER — drop Ticker.jsx into src/components/ */}
+      <Ticker />
 
       {/* IMPACT BAR */}
       <section className="impact-bar">
@@ -78,7 +79,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ABOUT — text left, photo right */}
+      {/* ABOUT */}
       <section className="section section--light">
         <div className="container about">
           <div className="about__text">
@@ -136,7 +137,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROGRAMMES — photo cards */}
+      {/* PROGRAMMES */}
       <section className="section">
         <div className="container">
           <span className="section-label">Our Programmes</span>
@@ -179,14 +180,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PACKAGES */}
+      {/* SUPPORT PREVIEW — 2 col max, links to full page */}
       <section className="section section--light" id="support">
         <div className="container">
           <span className="section-label">Support Us</span>
           <h2 className="section-title">Every rand makes a difference.</h2>
-          <p className="section-subtitle" style={{ marginBottom: 56 }}>
-            Choose a sponsorship package below. No payment gateway required &mdash; you
-            submit a pledge and our team will be in touch to finalise your contribution.
+          <p className="section-subtitle" style={{ marginBottom: 48 }}>
+            Choose a sponsorship package. No payment gateway required &mdash; submit
+            a pledge and our team will be in touch within 48 hours.
           </p>
           <div className="packages__grid">
             {packages.map(pkg => (
