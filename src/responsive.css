@@ -1,139 +1,71 @@
 /* ============================================
-   RESPONSIVE.CSS — Mobile-first fixes
+   RESPONSIVE.CSS
+   Grids are handled by minmax in each page CSS.
+   This file only handles non-grid layouts.
    ============================================ */
 
-@media (max-width: 1024px) {
-  .container { padding: 0 20px; }
-  .section    { padding: 72px 0; }
-  .about              { grid-template-columns: 1fr; gap: 40px; }
-  .about__photo-img   { height: 320px; }
-  .programmes__grid   { grid-template-columns: 1fr 1fr; gap: 20px; }
-  .packages__grid     { grid-template-columns: 1fr 1fr; gap: 20px; }
-  .npo-split              { grid-template-columns: 1fr; gap: 40px; }
-  .npo-split--reverse     { direction: ltr; }
-  .npo-split--reverse > * { direction: ltr; }
-  .npo-photo-wrap         { min-height: 280px; }
-  .npo-photo              { min-height: 280px; height: 300px; }
-  .npo-priorities         { grid-template-columns: 1fr 1fr; }
-  .calc-wrap            { grid-template-columns: 1fr; }
-  .calc-impact-display  { grid-column: 1; }
-  .calc-ladder          { grid-column: 1; }
-  .calc-ladder__items   { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 900px) {
+  /* Cart & checkout - explicit 2-panel → 1-panel */
   .checkout-page__layout { grid-template-columns: 1fr; }
   .checkout-summary      { position: static; }
   .cart-page__layout     { grid-template-columns: 1fr; }
   .cart-summary          { position: static; }
-  .footer__inner { grid-template-columns: 1fr 1fr; gap: 40px; }
-  .support-banking       { grid-template-columns: 1fr; gap: 40px; }
-  .support-packages-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
-}
-
-@media (max-width: 720px) {
-  .container    { padding: 0 18px; }
-  .section      { padding: 56px 0; }
-  .section-title { font-size: 1.8rem; }
-
-  /* Hero */
-  .hero        { min-height: 88vh; padding: 100px 0 72px; }
-  .hero__title { font-size: 2rem; }
-  .hero__sub   { font-size: 0.95rem; }
-  .hero__actions { flex-direction: column; align-items: stretch; gap: 12px; }
-  .hero__actions .btn { text-align: center; }
-
-  /* Impact bar */
-  .impact-bar__inner  { gap: 16px; justify-content: space-around; }
-  .impact-bar__number { font-size: 1.8rem; }
-  .impact-bar__label  { font-size: 0.65rem; }
-
-  /* About */
-  .about            { grid-template-columns: 1fr; gap: 32px; }
-  .about__photo-img { height: 260px; }
-
-  /* NPO logos */
-  .npo-logos-strip__inner  { gap: 24px; }
-  .npo-logos-strip__item img { height: 32px; }
-
-  /* Programmes */
-  .programmes__grid      { grid-template-columns: 1fr; }
-  .programme-card__photo { height: 200px; }
-
-  /* HOME PACKAGES — single column, full width */
-  .packages__grid { grid-template-columns: 1fr; gap: 16px; }
-  .package-card   { width: 100%; }
-  .package-card__footer { flex-wrap: wrap; gap: 12px; }
-  .package-card__footer .btn { width: 100%; text-align: center; }
-
-  /* Volunteer CTA */
-  .volunteer-cta__inner { flex-direction: column; text-align: center; gap: 24px; }
-  .volunteer-cta__btn   { width: 100%; text-align: center; }
-
-  /* NPO pages */
-  .npo-hero        { padding: 80px 0 56px; }
-  .npo-hero__title { font-size: 1.8rem; }
-  .npo-hero__actions { flex-direction: column; gap: 12px; }
-  .npo-hero__actions .btn { text-align: center; }
-  .npo-stats__inner { justify-content: space-around; gap: 16px; }
-  .npo-priorities   { grid-template-columns: 1fr; }
-  .npo-packages     { grid-template-columns: 1fr; }
-  .npo-package-card__footer { flex-wrap: wrap; gap: 10px; }
-  .npo-package-card__footer .btn { width: 100%; text-align: center; }
-  .schools-grid     { grid-template-columns: 1fr 1fr; }
-
-  /* Inkanyezi */
-  .ik-pillars               { grid-template-columns: 1fr; }
-  .ik-timeline::before      { left: 60px; }
-  .ik-timeline__item        { grid-template-columns: 52px 16px 1fr; gap: 0 8px; }
-  .ik-pilot-banner__inner   { flex-direction: column; align-items: flex-start; gap: 12px; }
-  .ik-pilot-banner__btn     { width: 100%; text-align: center; }
 
   /* Calculator */
-  .calc-hero__title  { font-size: 1.8rem; }
-  .calc-wrap         { grid-template-columns: 1fr; gap: 20px; }
-  .calc-input-area   { padding: 24px 20px; }
-  .calc-amount-input { font-size: 1.8rem; }
-  .calc-currency     { font-size: 1.8rem; }
-  .calc-ladder__items { grid-template-columns: 1fr; }
-  .calc-quick        { gap: 6px; }
-  .calc-quick-btn    { font-size: 0.72rem; padding: 5px 10px; }
-  .calc-cta__inner   { flex-direction: column; text-align: center; }
-  .calc-cta__actions { width: 100%; justify-content: center; }
+  .calc-wrap           { grid-template-columns: 1fr; }
+  .calc-impact-display { grid-column: 1; }
+  .calc-ladder         { grid-column: 1; }
 
-  /* Cart */
-  .cart-item           { flex-direction: column; align-items: flex-start; gap: 16px; }
+  /* Footer */
+  .footer__inner { grid-template-columns: 1fr 1fr; gap: 36px; }
+}
+
+@media (max-width: 600px) {
+  .container  { padding: 0 16px; }
+  .section    { padding: 52px 0; }
+
+  /* Cart items stack */
+  .cart-item           { flex-direction: column; align-items: flex-start; gap: 14px; }
   .cart-item__controls { width: 100%; justify-content: space-between; }
   .cart-page__header   { flex-direction: column; align-items: flex-start; gap: 8px; }
 
-  /* Checkout */
-  .form-row        { grid-template-columns: 1fr; }
-  .checkout-submit { font-size: 0.95rem; }
+  /* Checkout form */
+  .form-row { grid-template-columns: 1fr; }
 
-  /* Volunteer */
+  /* Volunteer form */
   .volunteer-roles       { grid-template-columns: 1fr; }
   .volunteer-roles-check { grid-template-columns: 1fr; }
-  .volunteer-hero__title { font-size: 2rem; }
+
+  /* Inkanyezi */
+  .ik-pillars             { grid-template-columns: 1fr; }
+  .ik-timeline::before    { left: 56px; }
+  .ik-timeline__item      { grid-template-columns: 48px 14px 1fr; gap: 0 8px; }
+  .ik-pilot-banner__inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .ik-pilot-banner__btn   { width: 100%; text-align: center; }
+
+  /* Calculator */
+  .calc-input-area    { padding: 22px 18px; }
+  .calc-amount-input  { font-size: 1.8rem; }
+  .calc-currency      { font-size: 1.8rem; }
+  .calc-ladder__items { grid-template-columns: 1fr; }
+  .calc-quick         { gap: 6px; }
+  .calc-quick-btn     { font-size: 0.72rem; padding: 5px 10px; }
+  .calc-cta__inner    { flex-direction: column; text-align: center; }
+  .calc-cta__actions  { justify-content: center; }
 
   /* Support Us */
-  .support-packages-grid  { grid-template-columns: 1fr; }
-  .support-filters        { gap: 6px; }
-  .support-filter-btn     { padding: 8px 14px; font-size: 0.78rem; }
-  .wishlist-strip__inner  { flex-direction: column; align-items: flex-start; }
+  .support-filters         { gap: 6px; }
+  .support-filter-btn      { padding: 7px 12px; font-size: 0.76rem; }
+  .wishlist-strip__inner   { flex-direction: column; align-items: flex-start; gap: 10px; }
   .support-cart-cta__inner { flex-direction: column; text-align: center; gap: 12px; }
   .support-cart-cta__inner .btn { width: 100%; text-align: center; }
 
   /* Footer */
-  .footer__inner   { grid-template-columns: 1fr; gap: 32px; }
-  .footer__brand p { font-size: 0.85rem; }
-}
+  .footer__inner { grid-template-columns: 1fr; gap: 28px; }
 
-@media (max-width: 420px) {
-  .container     { padding: 0 14px; }
-  .section-title { font-size: 1.4rem; }
-  .btn           { padding: 12px 20px; font-size: 0.85rem; }
-  .hero__title   { font-size: 1.65rem; }
-  .impact-bar__number { font-size: 1.5rem; }
-  .impact-bar__label  { font-size: 0.6rem; }
-  .about__photo-img   { height: 220px; }
-  .schools-grid       { grid-template-columns: 1fr; }
-  .npo-stats__number  { font-size: 1.5rem; }
-  .package-card__price { font-size: 1.1rem; }
+  /* Checkout submit */
+  .checkout-submit { font-size: 0.95rem; }
+
+  /* Volunteer submit */
+  .volunteer-submit { width: 100%; text-align: center; }
 }

@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import Ticker from '../components/Ticker';
+import SchoolsMap from '../components/SchoolsMap';
 import './Home.css';
 
 const packages = [
-  { id: 'pkg-1', npo: 'TeachOut',              colour: 'var(--gold)', title: 'Fund One Tutoring Day',    description: 'Cover transport and materials for one Saturday tutoring session at Usasazo High School or Beautiful Gate Centre.', price: 350,  impact: 'Supports up to 30 learners for a full day' },
-  { id: 'pkg-2', npo: 'Thethani Debating League', colour: 'var(--red)',  title: 'Sponsor a Debate Workshop', description: 'Fund one week of bi-weekly debate coaching workshops for 100+ learners across Cape Town townships.', price: 3500, impact: '100+ learners coached across 10 schools' },
-  { id: 'pkg-3', npo: 'Thethani Debating League', colour: 'var(--red)',  title: 'Sponsor a Tournament',      description: 'Fund a full-day tournament including transport reimbursements, lunch packs, and certificates for 120 learners.', price: 6800, impact: '120 learners compete on a day they will remember' },
-  { id: 'pkg-4', npo: 'Inkanyezi',             colour: 'var(--blue)', title: 'Pilot Programme Support',  description: 'Support the revival of Inkanyezi, funding mentorship and psychosocial support for learners in Khayelitsha.', price: 2000, impact: 'Directly funds student mentor training and materials' },
-  { id: 'pkg-5', npo: 'Ubunye',                colour: 'var(--green)',title: 'General Annual Fund',      description: 'Contribute to Ubunye general annual budget, covering all three NPOs across the 2026 school year.', price: 5000, impact: 'Sustains 3 NPOs, 10 schools, 100+ learners weekly' },
+  { id: 'pkg-1', npo: 'TeachOut',                 colour: 'var(--gold)',  title: 'Fund One Tutoring Day',    description: 'Cover transport and materials for one Saturday tutoring session at Usasazo High School or Beautiful Gate Centre.', price: 350,  impact: 'Supports up to 30 learners for a full day' },
+  { id: 'pkg-2', npo: 'Thethani Debating League',  colour: 'var(--red)',   title: 'Sponsor a Debate Workshop', description: 'Fund one week of bi-weekly debate coaching workshops for 100+ learners across Cape Town townships.', price: 3500, impact: '100+ learners coached across 10 schools' },
+  { id: 'pkg-3', npo: 'Thethani Debating League',  colour: 'var(--red)',   title: 'Sponsor a Tournament',      description: 'Fund a full-day tournament including transport reimbursements, lunch packs, and certificates for 120 learners.', price: 6800, impact: '120 learners compete on a day they will remember' },
+  { id: 'pkg-4', npo: 'Inkanyezi',                 colour: 'var(--blue)',  title: 'Pilot Programme Support',   description: 'Support the revival of Inkanyezi, funding mentorship and psychosocial support for learners in Khayelitsha.', price: 2000, impact: 'Directly funds student mentor training and materials' },
+  { id: 'pkg-5', npo: 'Ubunye',                    colour: 'var(--green)', title: 'General Annual Fund',       description: 'Contribute to Ubunye general annual budget, covering all three NPOs across the 2026 school year.', price: 5000, impact: 'Sustains 3 NPOs, 10 schools, 100+ learners weekly' },
 ];
 
 const stats = [
@@ -20,9 +21,9 @@ const stats = [
 ];
 
 const programmes = [
-  { slug: 'ikanyezi', colour: 'var(--blue)',  logo: '/images/inkanyezi-logo.png',  name: 'Inkanyezi',               tagline: 'Let Us Shine',                           img: '/images/Ikanyezi1.jpg', description: 'Founded in 2005, Inkanyezi provides mentorship, crisis support, and psychosocial care to learners in Khayelitsha. Currently undergoing a structured 2026 pilot revival.' },
-  { slug: 'teachout', colour: 'var(--gold)',  logo: '/images/teachout-logo.png',   name: 'TeachOut',                tagline: 'Free quality tutoring, every Saturday',    img: '/images/StudentsOneTeachOut.jpeg',  description: 'TeachOut provides free academic tutoring in English, Mathematics, Accounting, and Physics to learners at Usasazo High School and Beautiful Gate Centre.' },
-  { slug: 'thethani', colour: 'var(--red)',   logo: '/images/thethani-logo.png',   name: 'Thethani Debating League',tagline: "South Africa's largest outreach debating league", img: '/images/TDL1.jpg', description: "For 20 consecutive years, TDL has coached 100+ learners weekly across 10 Cape Town township schools in critical thinking and public speaking." },
+  { slug: 'ikanyezi', colour: 'var(--blue)',  logo: '/images/inkanyezi-logo.png', name: 'Inkanyezi',                tagline: 'Let Us Shine',                                img: '/images/Ikanyezi1.jpg',           description: 'Founded in 2005, Inkanyezi provides mentorship, crisis support, and psychosocial care to learners in Khayelitsha. Currently undergoing a structured 2026 pilot revival.' },
+  { slug: 'teachout', colour: 'var(--gold)',  logo: '/images/teachout-logo.png',  name: 'TeachOut',                 tagline: 'Free quality tutoring, every Saturday',       img: '/images/StudentsOneTeachOut.jpeg', description: 'TeachOut provides free academic tutoring in English, Mathematics, Accounting, and Physics to learners at Usasazo High School and Beautiful Gate Centre.' },
+  { slug: 'thethani', colour: 'var(--red)',   logo: '/images/thethani-logo.png',  name: 'Thethani Debating League', tagline: "South Africa's largest outreach debating league", img: '/images/TDL1.jpg',             description: "For 20 consecutive years, TDL has coached 100+ learners weekly across 10 Cape Town township schools in critical thinking and public speaking." },
 ];
 
 export default function Home() {
@@ -56,7 +57,12 @@ export default function Home() {
           </div>
           <p className="hero__press">
             Featured in{' '}
-            <a href="https://www.news.uct.ac.za/article/-2026-03-17-ubunyes-student-volunteers-ready-themselves-for-2026s-educational-outreach" target="_blank" rel="noreferrer" className="hero__press-link">
+            <a
+              href="https://www.news.uct.ac.za/article/-2026-03-17-ubunyes-student-volunteers-ready-themselves-for-2026s-educational-outreach"
+              target="_blank"
+              rel="noreferrer"
+              className="hero__press-link"
+            >
               UCT News, March 2026
             </a>
             {' '}&middot; MacJannet Prize for Global Citizenship, 2010
@@ -64,7 +70,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ANIMATED TICKER — drop Ticker.jsx into src/components/ */}
+      {/* TICKER — file must be in src/components/Ticker.jsx */}
       <Ticker />
 
       {/* IMPACT BAR */}
@@ -131,7 +137,7 @@ export default function Home() {
                 alt={p.name}
                 onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='block'; }}
               />
-              <span style={{ display: 'none', fontFamily: 'var(--font-heading)', fontWeight: 700, color: p.colour }}>{p.name}</span>
+              <span style={{ display:'none', fontFamily:'var(--font-heading)', fontWeight:700, color:p.colour }}>{p.name}</span>
             </Link>
           ))}
         </div>
@@ -142,7 +148,7 @@ export default function Home() {
         <div className="container">
           <span className="section-label">Our Programmes</span>
           <h2 className="section-title">Three NPOs. One mission.</h2>
-          <p className="section-subtitle" style={{ marginBottom: 56 }}>
+          <p className="section-subtitle" style={{ marginBottom: 48 }}>
             Each organisation targets a different dimension of youth development.
             Together they form a holistic support system for learners who need it most.
           </p>
@@ -180,12 +186,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SUPPORT PREVIEW — 2 col max, links to full page */}
+      {/* MAP — replaces the broken 3-col packages preview */}
+      <SchoolsMap />
+
+      {/* PACKAGES PREVIEW — 2 highlighted ones, link to full page */}
       <section className="section section--light" id="support">
         <div className="container">
           <span className="section-label">Support Us</span>
           <h2 className="section-title">Every rand makes a difference.</h2>
-          <p className="section-subtitle" style={{ marginBottom: 48 }}>
+          <p className="section-subtitle" style={{ marginBottom: 40 }}>
             Choose a sponsorship package. No payment gateway required &mdash; submit
             a pledge and our team will be in touch within 48 hours.
           </p>
@@ -210,7 +219,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div style={{ textAlign: 'center', marginTop: 48, display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div style={{ textAlign:'center', marginTop:40, display:'flex', gap:16, justifyContent:'center', flexWrap:'wrap' }}>
             <Link to="/support-us" className="btn btn-dark">View All Packages</Link>
             <Link to="/impact-calculator" className="btn btn-primary">Calculate Your Impact</Link>
           </div>
