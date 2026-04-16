@@ -22,7 +22,7 @@ const facts    = [{ number: '100+', label: 'New volunteers in 2026' }, { number:
 const reports = [
   {
     type: 'State of Organisation Report',
-    title: 'TeachOut State of Organisation — March 2026',
+    title: 'TeachOut State of Organisation : March 2026',
     date: '11 March 2026',
     summary: 'Covers the 2026 Welcome Festival (100+ volunteers recruited), Volunteer Induction & Training, and the three strategic priorities for the year.',
     file: 'teachout-state-2026.pdf',

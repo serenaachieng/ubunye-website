@@ -27,7 +27,7 @@ const timeline = [
 const reports = [
   {
     type: 'Organisational Report',
-    title: 'Inkanyezi Report — Q4 2020 & Q1 2021',
+    title: 'Inkanyezi Report : Q4 2020 & Q1 2021',
     date: '2021',
     summary: 'Covers the online mentorship pilot with GradAccess during COVID-19, serving 180 learners across Sinethemba, Sophumelela, and Beacon Hill schools.',
     file: 'inkanyezi-quarterly-2021.pdf',
