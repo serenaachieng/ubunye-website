@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import ImpactReports from '../components/ImpactReports';
 import './NPO.css';
 
 const packages = [
@@ -12,6 +13,23 @@ const subjects = ['English', 'Mathematics', 'Mathematical Literacy', 'Accountanc
 const schools  = [{ name: 'Usasazo High School', area: 'Khayelitsha' }, { name: 'Beautiful Gate Centre', area: 'Philippi' }];
 const facts    = [{ number: '100+', label: 'New volunteers in 2026' }, { number: '2', label: 'Schools served' }, { number: '5', label: 'Subjects tutored' }, { number: 'Free', label: 'Cost to every learner' }];
 
+/*
+  IMPACT REPORTS — to activate downloads:
+  1. Save the PDF into public/reports/
+  2. Update the `file` field below with the exact filename
+  e.g. file: 'teachout-state-2026.pdf'
+*/
+const reports = [
+  {
+    type: 'State of Organisation Report',
+    title: 'TeachOut State of Organisation — March 2026',
+    date: '11 March 2026',
+    summary: 'Covers the 2026 Welcome Festival (100+ volunteers recruited), Volunteer Induction & Training, and the three strategic priorities for the year.',
+    file: 'teachout-state-2026.pdf',
+  },
+  
+];
+
 export default function TeachOut() {
   const { addToCart, cartItems } = useCart();
   function handleAdd(pkg) { addToCart({ id: pkg.id, title: pkg.title, npo: 'TeachOut', price: pkg.price }); }
@@ -20,9 +38,9 @@ export default function TeachOut() {
   return (
     <main>
 
-      {/* HERO — background image: public/images/StudentsOneTeachOut.jpeg */}
+      {/* HERO */}
       <section className="npo-hero">
-        <div className="npo-hero__bg" style={{ backgroundImage: 'url(/images/BoardTeachOut.jpeg)' }} />
+        <div className="npo-hero__bg" style={{ backgroundImage: 'url(/images/StudentsOneTeachOut.jpeg)' }} />
         <div className="npo-hero__overlay" />
         <div className="container npo-hero__inner">
           <Link to="/" className="npo-hero__back">Back to Ubunye</Link>
@@ -58,10 +76,7 @@ export default function TeachOut() {
           <div className="npo-photo-wrap">
             <img src="/images/KatlegoTeachOut.jpeg" alt="TeachOut tutoring session" className="npo-photo"
               onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
-            <div className="img-slot__fallback">
-              <p>Add tutoring session photo</p>
-              <small>public/images/KatlegoTeachOut.jpeg</small>
-            </div>
+            <div className="img-slot__fallback"><p>Add tutoring session photo</p><small>public/images/KatlegoTeachOut.jpeg</small></div>
           </div>
           <div className="npo-split__text">
             <span className="section-label" style={{ color: 'var(--gold)' }}>What We Do</span>
@@ -105,10 +120,7 @@ export default function TeachOut() {
           <div className="npo-photo-wrap">
             <img src="/images/StudentsTwoTeachOut.jpeg" alt="TeachOut learners" className="npo-photo"
               onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
-            <div className="img-slot__fallback">
-              <p>Add learners photo</p>
-              <small>public/images/StudentsTwoTeachOut.jpeg</small>
-            </div>
+            <div className="img-slot__fallback"><p>Add learners photo</p><small>public/images/StudentsTwoTeachOut.jpeg</small></div>
           </div>
         </div>
       </section>
@@ -155,8 +167,11 @@ export default function TeachOut() {
         </div>
       </section>
 
+      {/* IMPACT REPORTS */}
+      <ImpactReports npo="TeachOut" colour="var(--gold)" reports={reports} />
+
       {/* SPONSORSHIP */}
-      <section className="section" id="support">
+      <section className="section section--light" id="support">
         <div className="container">
           <span className="section-label" style={{ color: 'var(--gold)' }}>Support TeachOut</span>
           <h2 className="section-title">Fund a session. Change a grade.</h2>

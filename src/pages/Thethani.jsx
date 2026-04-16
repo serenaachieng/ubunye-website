@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import ImpactReports from '../components/ImpactReports';
 import './NPO.css';
 
 const packages = [
@@ -20,13 +21,24 @@ const schools = [
   { name: 'Zisukhanyo Secondary School',        area: 'Samora Machel' },
   { name: 'Khulani Secondary School',           area: 'Langa' },
   { name: 'LEAP Science and Maths School',      area: 'Langa' },
+  { name: 'Isilimela High School',              area: 'Langa' },
 ];
 
 const facts = [
   { number: '20',   label: 'Years running' },
-  { number: '10',   label: 'Partner schools' },
+  { number: '11',   label: 'Partner schools' },
   { number: '100+', label: 'Learners weekly' },
   { number: '3',    label: 'Tournaments per year' },
+];
+
+const reports = [
+  {
+    type: 'Funding Proposal',
+    title: 'TDL Funding Proposal 2025',
+    date: '2025',
+    summary: 'Full breakdown of TDL expenses: R6,800 per average tournament, R3,500 per workshop week, vendor details, and partnership options.',
+    file: 'tdl-funding-proposal-2025.pdf',
+  },
 ];
 
 export default function Thethani() {
@@ -37,7 +49,7 @@ export default function Thethani() {
   return (
     <main>
 
-      {/* HERO — background image: public/images/TDL1.jpg */}
+      {/* HERO */}
       <section className="npo-hero">
         <div className="npo-hero__bg" style={{ backgroundImage: 'url(/images/TDL1.jpg)' }} />
         <div className="npo-hero__overlay" />
@@ -48,7 +60,7 @@ export default function Thethani() {
           <p className="npo-hero__sub">
             The Thethani Debating League is South Africa&apos;s largest outreach debating league.
             For 20 consecutive years, UCT student volunteers have coached over 100 learners
-            every week across 10 township schools in Cape Town.
+            every week across 11 township schools in Cape Town.
           </p>
           <div className="npo-hero__actions">
             <a href="#support" className="btn btn-primary">Sponsor TDL</a>
@@ -89,10 +101,7 @@ export default function Thethani() {
           <div className="npo-photo-wrap">
             <img src="/images/TDL3.jpg" alt="TDL debate coaching workshop" className="npo-photo"
               onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
-            <div className="img-slot__fallback">
-              <p>Add workshop photo</p>
-              <small>public/images/TDL3.jpg</small>
-            </div>
+            <div className="img-slot__fallback"><p>Add workshop photo</p><small>public/images/TDL3.jpg</small></div>
           </div>
         </div>
       </section>
@@ -103,10 +112,7 @@ export default function Thethani() {
           <div className="npo-photo-wrap">
             <img src="/images/DebatingBoy.JPG" alt="TDL tournament day" className="npo-photo"
               onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
-            <div className="img-slot__fallback">
-              <p>Add tournament photo</p>
-              <small>public/images/DebatingBoy.JPG</small>
-            </div>
+            <div className="img-slot__fallback"><p>Add tournament photo</p><small>public/images/DebatingBoy.JPG</small></div>
           </div>
           <div className="npo-split__text">
             <span className="section-label" style={{ color: 'var(--red)' }}>Tournaments</span>
@@ -130,7 +136,7 @@ export default function Thethani() {
       <section className="section section--light">
         <div className="container">
           <span className="section-label" style={{ color: 'var(--red)' }}>Our Schools</span>
-          <h2 className="section-title">10 schools. 5 communities.</h2>
+          <h2 className="section-title">11 schools. 5 communities.</h2>
           <p className="section-subtitle" style={{ marginBottom: 48 }}>
             TDL reaches schools across Khayelitsha, Gugulethu, Mfuleni, Samora Machel,
             Langa, and Heideveld &mdash; some of Cape Town&apos;s most under-resourced areas.
@@ -162,6 +168,9 @@ export default function Thethani() {
           </cite>
         </div>
       </section>
+
+      {/* IMPACT REPORTS */}
+      <ImpactReports npo="the Thethani Debating League" colour="var(--red)" reports={reports} />
 
       {/* SPONSORSHIP */}
       <section className="section section--light" id="support">
