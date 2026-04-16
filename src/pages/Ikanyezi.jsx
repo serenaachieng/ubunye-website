@@ -21,22 +21,10 @@ const packages = [
 ];
 
 const pillars = [
-  {
-    title: 'Psychosocial Support',
-    description: 'Structured peer-based support addressing the emotional and social challenges faced by learners in under-resourced high schools, where professional counselling services are rarely available.',
-  },
-  {
-    title: 'Crisis Intervention',
-    description: 'Rapid-response support for learners experiencing acute personal crises — including family instability, trauma, and the pressures of navigating education in under-resourced environments.',
-  },
-  {
-    title: 'Mentorship',
-    description: 'Long-term mentorship relationships between UCT student volunteers and high school learners, focused on personal growth, goal-setting, building confidence, and resilience.',
-  },
-  {
-    title: 'Post-Matric Guidance',
-    description: 'Equipping learners with knowledge of tertiary options, bursaries, learnerships, and career pathways — giving them the tools to access opportunities beyond high school.',
-  },
+  { title: 'Psychosocial Support', description: 'Structured peer-based support addressing the emotional and social challenges faced by learners in under-resourced high schools, where professional counselling services are rarely available.' },
+  { title: 'Crisis Intervention',  description: 'Rapid-response support for learners experiencing acute personal crises — including family instability, trauma, and the pressures of navigating education in under-resourced environments.' },
+  { title: 'Mentorship',           description: 'Long-term mentorship relationships between UCT student volunteers and high school learners, focused on personal growth, goal-setting, building confidence, and resilience.' },
+  { title: 'Post-Matric Guidance', description: 'Equipping learners with knowledge of tertiary options, bursaries, learnerships, and career pathways — giving them the tools to access opportunities beyond high school.' },
 ];
 
 const timeline = [
@@ -49,20 +37,16 @@ const timeline = [
 
 export default function Ikanyezi() {
   const { addToCart, cartItems } = useCart();
-
-  function handleAdd(pkg) {
-    addToCart({ id: pkg.id, title: pkg.title, npo: 'Inkanyezi', price: pkg.price });
-  }
-
-  function isInCart(id) {
-    return cartItems.some(i => i.id === id);
-  }
+  function handleAdd(pkg) { addToCart({ id: pkg.id, title: pkg.title, npo: 'Inkanyezi', price: pkg.price }); }
+  function isInCart(id)   { return cartItems.some(i => i.id === id); }
 
   return (
     <main>
 
-      {/* HERO */}
+      {/* HERO — add your image to public/images/ikanyezi-hero.jpg */}
       <section className="npo-hero">
+        <div className="npo-hero__bg" style={{ backgroundImage: 'url(/images/StudentsGroup2.JPG)' }} />
+        <div className="npo-hero__overlay" />
         <div className="container npo-hero__inner">
           <Link to="/" className="npo-hero__back">Back to Ubunye</Link>
           <div className="npo-hero__badge" style={{ background: 'var(--blue)' }}>Inkanyezi</div>
@@ -130,14 +114,12 @@ export default function Ikanyezi() {
               visiting three schools four days every week.
             </p>
           </div>
-
-          {/* IMAGE SLOT 1 — drop in your photo */}
           <div className="img-slot">
             <img src="/images/StudentsGroupPhoto.JPG" alt="Inkanyezi mentorship session" className="img-slot__img"
               onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
             <div className="img-slot__fallback">
               <p>Add photo here</p>
-              <small>Save image as: public/images/StudentsGroupPhoto.JPG</small>
+              <small>public/images/StudentsGroupPhoto.JPG</small>
             </div>
           </div>
         </div>
@@ -178,15 +160,12 @@ export default function Ikanyezi() {
               </div>
             ))}
           </div>
-
-          {/* IMAGE SLOT 2 */}
           <div className="img-slot img-slot--wide" style={{ marginTop: 48 }}>
-            <img src="/images/GroupPhoto.jpg" alt="Inkanyezi volunteer team"
-              className="img-slot__img"
+            <img src="/images/GroupPhoto.jpg" alt="Inkanyezi volunteer team" className="img-slot__img"
               onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
             <div className="img-slot__fallback">
               <p>Add team photo here</p>
-              <small>Save image as: public/images/GroupPhoto.jpg</small>
+              <small>public/images/GroupPhoto.jpg</small>
             </div>
           </div>
         </div>
@@ -221,10 +200,7 @@ export default function Ikanyezi() {
                 <p className="npo-package-card__impact">Impact: {pkg.impact}</p>
                 <div className="npo-package-card__footer">
                   <span className="npo-package-card__price">R{pkg.price.toLocaleString()}</span>
-                  <button
-                    className={isInCart(pkg.id) ? 'btn btn-dark' : 'btn btn-primary'}
-                    onClick={() => handleAdd(pkg)}
-                  >
+                  <button className={isInCart(pkg.id) ? 'btn btn-dark' : 'btn btn-primary'} onClick={() => handleAdd(pkg)}>
                     {isInCart(pkg.id) ? 'Added' : 'Add to Pledge'}
                   </button>
                 </div>

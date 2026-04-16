@@ -3,61 +3,20 @@ import { Link } from 'react-router-dom';
 import './Volunteer.css';
 
 const roles = [
-  {
-    id: 'teachout',
-    npo: 'TeachOut',
-    colour: 'var(--gold)',
-    title: 'Academic Tutor',
-    description: 'Tutor high school learners in English, Mathematics, Mathematical Literacy, Accountancy, or Physics every Saturday morning.',
-    commitment: 'Every Saturday, approx. 3 hours',
-    requirements: 'Studying or have passed the subject at university level',
-  },
-  {
-    id: 'thethani',
-    npo: 'Thethani Debating League',
-    colour: 'var(--red)',
-    title: 'Debate Coach',
-    description: 'Coach learners in debate technique, critical thinking, and public speaking at bi-weekly workshops on UCT Upper Campus.',
-    commitment: 'Bi-weekly Saturdays, approx. 3-4 hours',
-    requirements: 'Passion for debate, current affairs, and youth development',
-  },
-  {
-    id: 'inkanyezi',
-    npo: 'Inkanyezi',
-    colour: 'var(--blue)',
-    title: 'Mentorship Volunteer',
-    description: 'Provide mentorship and peer support to high school learners in Khayelitsha as part of the Inkanyezi 2026 pilot programme.',
-    commitment: 'Monthly sessions, schedule to be confirmed',
-    requirements: 'Empathy, reliability, and commitment to learner wellbeing',
-  },
-  {
-    id: 'general',
-    npo: 'Ubunye',
-    colour: 'var(--green)',
-    title: 'General Volunteer',
-    description: 'Support Ubunye events, outreach, fundraising, and administration. Great for students who want to get involved without a fixed weekly commitment.',
-    commitment: 'Flexible, event-based',
-    requirements: 'Enthusiasm and availability',
-  },
+  { id: 'teachout',  npo: 'TeachOut',              colour: 'var(--gold)',  title: 'Academic Tutor',       description: 'Tutor high school learners in English, Mathematics, Mathematical Literacy, Accountancy, or Physics every Saturday morning.',                                           commitment: 'Every Saturday, approx. 3 hours',         requirements: 'Studying or have passed the subject at university level' },
+  { id: 'thethani',  npo: 'Thethani Debating League', colour: 'var(--red)',   title: 'Debate Coach',         description: 'Coach learners in debate technique, critical thinking, and public speaking at bi-weekly workshops on UCT Upper Campus.',                                               commitment: 'Bi-weekly Saturdays, approx. 3-4 hours',  requirements: 'Passion for debate, current affairs, and youth development' },
+  { id: 'inkanyezi', npo: 'Inkanyezi',              colour: 'var(--blue)',  title: 'Mentorship Volunteer', description: 'Provide mentorship and peer support to high school learners in Khayelitsha as part of the Inkanyezi 2026 pilot programme.',                                           commitment: 'Monthly sessions, schedule to be confirmed', requirements: 'Empathy, reliability, and commitment to learner wellbeing' },
+  { id: 'general',   npo: 'Ubunye',                colour: 'var(--green)', title: 'General Volunteer',    description: 'Support Ubunye events, outreach, fundraising, and administration. Great for students who want to get involved without a fixed weekly commitment.', commitment: 'Flexible, event-based',                   requirements: 'Enthusiasm and availability' },
 ];
 
 export default function Volunteer() {
   const [form, setForm] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    studentNumber: '',
-    faculty: '',
-    yearOfStudy: '',
-    roles: [],
-    experience: '',
-    motivation: '',
-    availability: '',
+    firstName: '', lastName: '', email: '', phone: '',
+    studentNumber: '', faculty: '', yearOfStudy: '',
+    roles: [], experience: '', motivation: '', availability: '',
   });
-
   const [submitted, setSubmitted] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors]       = useState({});
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -68,33 +27,28 @@ export default function Volunteer() {
   function handleRoleToggle(id) {
     setForm(prev => ({
       ...prev,
-      roles: prev.roles.includes(id)
-        ? prev.roles.filter(r => r !== id)
-        : [...prev.roles, id],
+      roles: prev.roles.includes(id) ? prev.roles.filter(r => r !== id) : [...prev.roles, id],
     }));
   }
 
   function validate() {
     const e = {};
-    if (!form.firstName.trim())   e.firstName   = 'Required';
-    if (!form.lastName.trim())    e.lastName    = 'Required';
-    if (!form.email.trim())       e.email       = 'Required';
+    if (!form.firstName.trim())     e.firstName     = 'Required';
+    if (!form.lastName.trim())      e.lastName      = 'Required';
+    if (!form.email.trim())         e.email         = 'Required';
     if (form.email && !/\S+@\S+\.\S+/.test(form.email)) e.email = 'Enter a valid email';
-    if (!form.phone.trim())       e.phone       = 'Required';
+    if (!form.phone.trim())         e.phone         = 'Required';
     if (!form.studentNumber.trim()) e.studentNumber = 'Required';
-    if (!form.yearOfStudy)        e.yearOfStudy = 'Required';
-    if (form.roles.length === 0)  e.roles       = 'Please select at least one role';
-    if (!form.motivation.trim())  e.motivation  = 'Required';
+    if (!form.yearOfStudy)          e.yearOfStudy   = 'Required';
+    if (form.roles.length === 0)    e.roles         = 'Please select at least one role';
+    if (!form.motivation.trim())    e.motivation    = 'Required';
     return e;
   }
 
   function handleSubmit(e) {
     e.preventDefault();
     const newErrors = validate();
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
+    if (Object.keys(newErrors).length > 0) { setErrors(newErrors); return; }
     setSubmitted(true);
   }
 
@@ -104,17 +58,9 @@ export default function Volunteer() {
         <div className="container volunteer-success__inner">
           <div className="volunteer-success__icon">&#10003;</div>
           <h1>Welcome to the Ubunye family, {form.firstName}!</h1>
-          <p>
-            Your volunteer application has been received. Our team will be in touch
-            at <strong>{form.email}</strong> with next steps before the upcoming Saturday session.
-          </p>
-          <p style={{ marginTop: 12, color: '#aaa', fontSize: '0.9rem' }}>
-            In the meantime, follow us and spread the word to other UCT students who
-            might want to get involved.
-          </p>
-          <Link to="/" className="btn btn-primary" style={{ marginTop: 32 }}>
-            Back to Home
-          </Link>
+          <p>Your volunteer application has been received. Our team will be in touch at <strong>{form.email}</strong> with next steps before the upcoming Saturday session.</p>
+          <p style={{ marginTop: 12, color: '#aaa', fontSize: '0.9rem' }}>In the meantime, follow us and spread the word to other UCT students who might want to get involved.</p>
+          <Link to="/" className="btn btn-primary" style={{ marginTop: 32 }}>Back to Home</Link>
         </div>
       </main>
     );
@@ -123,12 +69,12 @@ export default function Volunteer() {
   return (
     <main>
 
-      {/* HERO */}
+      {/* HERO — background image: public/images/volunteers.jpg (or any group shot) */}
       <section className="volunteer-hero">
+        <div className="npo-hero__bg" style={{ backgroundImage: 'url(/images/CoverStudentTeachOut.jpeg)' }} />
+        <div className="npo-hero__overlay" />
         <div className="container volunteer-hero__inner">
-          <span className="section-label" style={{ color: 'rgba(255,255,255,0.6)' }}>
-            UCT Students
-          </span>
+          <span className="section-label" style={{ color: 'rgba(255,255,255,0.6)' }}>Get Involved</span>
           <h1 className="volunteer-hero__title">
             Give a Saturday.<br />
             <span style={{ color: 'var(--green)' }}>Change a future.</span>
@@ -153,14 +99,8 @@ export default function Volunteer() {
                 <h3>{r.title}</h3>
                 <p>{r.description}</p>
                 <div className="volunteer-role-card__meta">
-                  <div>
-                    <strong>Commitment</strong>
-                    <span>{r.commitment}</span>
-                  </div>
-                  <div>
-                    <strong>Requirements</strong>
-                    <span>{r.requirements}</span>
-                  </div>
+                  <div><strong>Commitment</strong><span>{r.commitment}</span></div>
+                  <div><strong>Requirements</strong><span>{r.requirements}</span></div>
                 </div>
               </div>
             ))}
@@ -174,14 +114,10 @@ export default function Volunteer() {
           <div className="volunteer-form-header">
             <span className="section-label">Apply Now</span>
             <h2 className="section-title">Register as a volunteer.</h2>
-            <p className="section-subtitle">
-              Applications are open to all UCT students. We welcome students from any
-              faculty and any year of study.
-            </p>
+            <p className="section-subtitle">Applications are open to all UCT students. We welcome students from any faculty and any year of study.</p>
           </div>
 
           <form className="volunteer-form" onSubmit={handleSubmit} noValidate>
-
             <div className="vform-section-title">Personal Details</div>
 
             <div className="form-row">
@@ -243,11 +179,7 @@ export default function Volunteer() {
               <div className="volunteer-roles-check">
                 {roles.map(r => (
                   <label key={r.id} className="form-checkbox" style={{ '--check-colour': r.colour }}>
-                    <input
-                      type="checkbox"
-                      checked={form.roles.includes(r.id)}
-                      onChange={() => handleRoleToggle(r.id)}
-                    />
+                    <input type="checkbox" checked={form.roles.includes(r.id)} onChange={() => handleRoleToggle(r.id)} />
                     {r.title} ({r.npo})
                   </label>
                 ))}
@@ -257,34 +189,16 @@ export default function Volunteer() {
 
             <div className="form-group">
               <label htmlFor="motivation">Why do you want to volunteer with Ubunye? *</label>
-              <textarea
-                id="motivation"
-                name="motivation"
-                value={form.motivation}
-                onChange={handleChange}
-                placeholder="Tell us what motivates you to get involved..."
-                rows={4}
-                className={errors.motivation ? 'input-error' : ''}
-              />
+              <textarea id="motivation" name="motivation" value={form.motivation} onChange={handleChange} placeholder="Tell us what motivates you to get involved..." rows={4} className={errors.motivation ? 'input-error' : ''} />
               {errors.motivation && <span className="form-error">{errors.motivation}</span>}
             </div>
 
             <div className="form-group">
               <label htmlFor="experience">Relevant experience (optional)</label>
-              <textarea
-                id="experience"
-                name="experience"
-                value={form.experience}
-                onChange={handleChange}
-                placeholder="Any tutoring, coaching, community work, or other relevant experience..."
-                rows={3}
-              />
+              <textarea id="experience" name="experience" value={form.experience} onChange={handleChange} placeholder="Any tutoring, coaching, community work, or other relevant experience..." rows={3} />
             </div>
 
-            <button type="submit" className="btn btn-primary volunteer-submit">
-              Submit Application
-            </button>
-
+            <button type="submit" className="btn btn-primary volunteer-submit">Submit Application</button>
           </form>
         </div>
       </section>

@@ -1,22 +1,49 @@
 /* ============================================
    NPO PAGE STYLES — shared across all 3 NPO pages
-   All grids use minmax — naturally responsive
    ============================================ */
 
 /* ── NPO HERO ──────────────────────────────── */
 .npo-hero {
-  background: var(--dark);
+  position: relative;          /* needed for bg + overlay layers */
   color: var(--white);
   padding: 100px 0 80px;
+  overflow: hidden;
+  background-color: var(--dark); /* fallback if no image */
 }
 
-.npo-hero__inner { max-width: 760px; }
+/* Background photo layer — same pattern as .hero__bg */
+.npo-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* Dark gradient overlay — keeps text readable over any photo */
+.npo-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(0,0,0,0.88) 0%,
+    rgba(0,0,0,0.65) 55%,
+    rgba(0,0,0,0.35) 100%
+  );
+}
+
+/* Content sits above the bg + overlay */
+.npo-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+}
 
 .npo-hero__back {
   display: inline-block;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #aaa;
+  color: rgba(255,255,255,0.6);
   margin-bottom: 24px;
   font-family: var(--font-heading);
   transition: var(--transition);
@@ -46,7 +73,7 @@
 
 .npo-hero__sub {
   font-size: clamp(0.95rem, 2vw, 1.05rem);
-  color: #ccc;
+  color: rgba(255,255,255,0.85);
   line-height: 1.8;
   max-width: 640px;
   margin-bottom: 36px;
@@ -95,7 +122,6 @@
 }
 
 /* ── SPLIT LAYOUT ──────────────────────────── */
-/* minmax(280px) = 2 col on desktop, 1 col on mobile */
 .npo-split {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -103,13 +129,8 @@
   align-items: start;
 }
 
-/* Reverse: on desktop photo shows left, on mobile it stacks below */
-.npo-split--reverse {
-  direction: rtl;
-}
-.npo-split--reverse > * {
-  direction: ltr;
-}
+.npo-split--reverse { direction: rtl; }
+.npo-split--reverse > * { direction: ltr; }
 
 /* ── PHOTO WRAP ────────────────────────────── */
 .npo-photo-wrap {
@@ -129,11 +150,7 @@
 }
 
 /* ── INFO CARDS ────────────────────────────── */
-.npo-split__cards {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+.npo-split__cards { display: flex; flex-direction: column; gap: 20px; }
 
 .npo-info-card {
   background: var(--white);
@@ -164,13 +181,7 @@
   text-align: center;
 }
 
-.npo-quote__cite {
-  display: block;
-  text-align: center;
-  font-size: 0.85rem;
-  color: #888;
-}
-
+.npo-quote__cite { display: block; text-align: center; font-size: 0.85rem; color: #888; }
 .npo-quote__cite a { color: var(--green); text-decoration: underline; }
 
 /* ── PRIORITIES ────────────────────────────── */
@@ -284,15 +295,15 @@
 .img-slot__fallback p     { font-family: var(--font-heading); font-weight: 700; font-size: 0.9rem; color: #999; }
 .img-slot__fallback small { font-size: 0.72rem; color: #bbb; font-family: monospace; }
 
-/* ── MOBILE OVERRIDES ──────────────────────── */
+/* ── MOBILE ────────────────────────────────── */
 @media (max-width: 600px) {
-  .npo-hero    { padding: 80px 0 56px; }
-  .npo-split   { gap: 32px; }
-  .npo-split--reverse { direction: ltr; }
+  .npo-hero        { padding: 80px 0 56px; }
+  .npo-split       { gap: 32px; }
+  .npo-split--reverse     { direction: ltr; }
   .npo-split--reverse > * { direction: ltr; }
   .npo-hero__actions { flex-direction: column; }
   .npo-hero__actions .btn { text-align: center; }
-  .npo-photo   { min-height: 240px; }
+  .npo-photo       { min-height: 240px; }
   .npo-package-card__footer { flex-direction: column; align-items: flex-start; }
   .npo-package-card__footer .btn { width: 100%; text-align: center; }
 }

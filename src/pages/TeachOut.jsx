@@ -3,9 +3,9 @@ import { useCart } from '../context/CartContext';
 import './NPO.css';
 
 const packages = [
-  { id: 'to-pkg-1', title: 'Fund One Tutoring Day', description: 'Cover transport and materials for one Saturday tutoring session at Usasazo High School or Beautiful Gate Centre in Philippi.', price: 350, impact: 'Supports up to 30 learners for a full day' },
+  { id: 'to-pkg-1', title: 'Fund One Tutoring Day',        description: 'Cover transport and materials for one Saturday tutoring session at Usasazo High School or Beautiful Gate Centre in Philippi.', price: 350,  impact: 'Supports up to 30 learners for a full day' },
   { id: 'to-pkg-2', title: 'Sponsor One Month of Sessions', description: 'Fund four consecutive Saturday tutoring sessions, covering volunteer coordination, materials, and learner refreshments.', price: 1400, impact: '4 sessions, up to 30 learners per session' },
-  { id: 'to-pkg-3', title: 'Full Term Sponsorship', description: 'Fund an entire school term of TeachOut sessions across both Usasazo High School and Beautiful Gate Centre.', price: 4200, impact: 'A full term of learning for dozens of learners' },
+  { id: 'to-pkg-3', title: 'Full Term Sponsorship',         description: 'Fund an entire school term of TeachOut sessions across both Usasazo High School and Beautiful Gate Centre.', price: 4200, impact: 'A full term of learning for dozens of learners' },
 ];
 
 const subjects = ['English', 'Mathematics', 'Mathematical Literacy', 'Accountancy', 'Physics'];
@@ -20,8 +20,10 @@ export default function TeachOut() {
   return (
     <main>
 
-      {/* HERO */}
+      {/* HERO — background image: public/images/StudentsOneTeachOut.jpeg */}
       <section className="npo-hero">
+        <div className="npo-hero__bg" style={{ backgroundImage: 'url(/images/BoardTeachOut.jpeg)' }} />
+        <div className="npo-hero__overlay" />
         <div className="container npo-hero__inner">
           <Link to="/" className="npo-hero__back">Back to Ubunye</Link>
           <div className="npo-hero__badge" style={{ background: 'var(--gold)' }}>TeachOut</div>
@@ -50,24 +52,17 @@ export default function TeachOut() {
         </div>
       </section>
 
-      {/* WHAT WE DO — photo left, text right */}
+      {/* WHAT WE DO */}
       <section className="section section--light">
         <div className="container npo-split npo-split--reverse">
-
-          {/* Photo: public/images/teachout-session.jpg — tutoring in action */}
           <div className="npo-photo-wrap">
-            <img
-              src="/images/KatlegoTeachOut.jpeg"
-              alt="TeachOut tutoring session"
-              className="npo-photo"
-              onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }}
-            />
+            <img src="/images/KatlegoTeachOut.jpeg" alt="TeachOut tutoring session" className="npo-photo"
+              onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
             <div className="img-slot__fallback">
               <p>Add tutoring session photo</p>
               <small>public/images/KatlegoTeachOut.jpeg</small>
             </div>
           </div>
-
           <div className="npo-split__text">
             <span className="section-label" style={{ color: 'var(--gold)' }}>What We Do</span>
             <h2 className="section-title">Academic support, every Saturday.</h2>
@@ -107,15 +102,9 @@ export default function TeachOut() {
               </div>
             </div>
           </div>
-
-          {/* Photo: public/images/teachout-learners.jpg — learners engaged */}
           <div className="npo-photo-wrap">
-            <img
-              src="/images/StudentsTwoTeachOut.jpeg"
-              alt="TeachOut learners"
-              className="npo-photo"
-              onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }}
-            />
+            <img src="/images/StudentsTwoTeachOut.jpeg" alt="TeachOut learners" className="npo-photo"
+              onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
             <div className="img-slot__fallback">
               <p>Add learners photo</p>
               <small>public/images/StudentsTwoTeachOut.jpeg</small>

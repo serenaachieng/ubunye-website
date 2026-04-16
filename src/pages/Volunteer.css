@@ -262,3 +262,14 @@
   color: var(--grey);
   line-height: 1.7;
 }
+
+/* ── HERO BG IMAGE SUPPORT ─────────────────── */
+.volunteer-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.volunteer-hero__inner {
+  position: relative;
+  z-index: 1;
+}

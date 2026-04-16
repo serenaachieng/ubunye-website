@@ -3,10 +3,10 @@ import { useCart } from '../context/CartContext';
 import './NPO.css';
 
 const packages = [
-  { id: 'tdl-pkg-1', title: 'Sponsor a Weekly Workshop', description: 'Fund one week of bi-weekly debate coaching workshops. Covers learner transport to UCT Upper Campus and refreshments.', price: 3500, impact: '100+ learners across 10 schools coached' },
-  { id: 'tdl-pkg-2', title: 'Sponsor an Average Tournament', description: 'Fund a full-day tournament for 120 learners including R50 transport reimbursements per learner, lunch packs, and certificates.', price: 6800, impact: '120 learners compete across junior and senior leagues' },
-  { id: 'tdl-pkg-3', title: 'Sponsor a Large Tournament', description: 'Fund a large-scale tournament for 200 learners with full catering, transport, prizes, and a themed motion set.', price: 11400, impact: '200 learners, 10 schools, one unforgettable day' },
-  { id: 'tdl-pkg-4', title: 'Full Year General Funding', description: 'Cover the full annual TDL programme budget including 6 workshops, 3 tournaments, volunteer socials, and committee T-shirts.', price: 55000, impact: 'Everything TDL needs for a complete 2026 season' },
+  { id: 'tdl-pkg-1', title: 'Sponsor a Weekly Workshop',    description: 'Fund one week of bi-weekly debate coaching workshops. Covers learner transport to UCT Upper Campus and refreshments.', price: 3500,  impact: '100+ learners across 10 schools coached' },
+  { id: 'tdl-pkg-2', title: 'Sponsor an Average Tournament', description: 'Fund a full-day tournament for 120 learners including R50 transport reimbursements per learner, lunch packs, and certificates.', price: 6800,  impact: '120 learners compete across junior and senior leagues' },
+  { id: 'tdl-pkg-3', title: 'Sponsor a Large Tournament',    description: 'Fund a large-scale tournament for 200 learners with full catering, transport, prizes, and a themed motion set.', price: 11400, impact: '200 learners, 10 schools, one unforgettable day' },
+  { id: 'tdl-pkg-4', title: 'Full Year General Funding',     description: 'Cover the full annual TDL programme budget including 6 workshops, 3 tournaments, volunteer socials, and committee T-shirts.', price: 55000, impact: 'Everything TDL needs for a complete 2026 season' },
 ];
 
 const schools = [
@@ -37,8 +37,10 @@ export default function Thethani() {
   return (
     <main>
 
-      {/* HERO */}
+      {/* HERO — background image: public/images/TDL1.jpg */}
       <section className="npo-hero">
+        <div className="npo-hero__bg" style={{ backgroundImage: 'url(/images/TDL1.jpg)' }} />
+        <div className="npo-hero__overlay" />
         <div className="container npo-hero__inner">
           <Link to="/" className="npo-hero__back">Back to Ubunye</Link>
           <div className="npo-hero__badge" style={{ background: 'var(--red)' }}>TDL</div>
@@ -67,7 +69,7 @@ export default function Thethani() {
         </div>
       </section>
 
-      {/* WHAT WE DO — text left, photo right */}
+      {/* WHAT WE DO */}
       <section className="section section--light">
         <div className="container npo-split">
           <div className="npo-split__text">
@@ -84,15 +86,9 @@ export default function Thethani() {
               debating them. This is not just sport. It is education for life.
             </p>
           </div>
-
-          {/* Photo: public/images/debate-workshop.jpg — coaching session */}
           <div className="npo-photo-wrap">
-            <img
-              src="/images/TDL3.jpg"
-              alt="TDL debate coaching workshop"
-              className="npo-photo"
-              onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }}
-            />
+            <img src="/images/TDL3.jpg" alt="TDL debate coaching workshop" className="npo-photo"
+              onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
             <div className="img-slot__fallback">
               <p>Add workshop photo</p>
               <small>public/images/TDL3.jpg</small>
@@ -101,24 +97,17 @@ export default function Thethani() {
         </div>
       </section>
 
-      {/* TOURNAMENT — photo left, text right */}
+      {/* TOURNAMENT */}
       <section className="section">
         <div className="container npo-split npo-split--reverse">
-
-          {/* Photo: public/images/debate-tournament.jpg — tournament day */}
           <div className="npo-photo-wrap">
-            <img
-              src="/images/DebatingBoy.JPG"
-              alt="TDL tournament day"
-              className="npo-photo"
-              onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }}
-            />
+            <img src="/images/DebatingBoy.JPG" alt="TDL tournament day" className="npo-photo"
+              onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
             <div className="img-slot__fallback">
               <p>Add tournament photo</p>
               <small>public/images/DebatingBoy.JPG</small>
             </div>
           </div>
-
           <div className="npo-split__text">
             <span className="section-label" style={{ color: 'var(--red)' }}>Tournaments</span>
             <h2 className="section-title">Two leagues. One unforgettable day.</h2>
