@@ -64,7 +64,7 @@ export default function ImpactReports({ npo, colour, reports }) {
         <p className="impact-reports__note">
           All financial records are subject to UCT&apos;s annual statutory audit and are
           included in the University&apos;s Annual Financial Statements. S18A tax certificates
-          are available for qualifying donations &mdash; contact us for details.
+          are available for qualifying donations. Contact us for details.
         </p>
       </div>
     </section>
