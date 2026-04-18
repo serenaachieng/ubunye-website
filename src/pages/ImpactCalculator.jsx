@@ -178,7 +178,7 @@ export default function ImpactCalculator() {
         <div className="container calc-hero__inner">
           <Link to="/support-us" className="calc-back">Back to Sponsorship Packages</Link>
           <span className="section-label" style={{ color: 'rgba(255,255,255,0.6)' }}>
-            Creative Tool
+            
           </span>
           <h1 className="calc-hero__title">
             See exactly what your<br />
