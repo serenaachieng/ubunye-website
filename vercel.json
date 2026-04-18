@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/reports/(.*).pdf",
+      "source": "/reports/:file",
       "headers": [
         {
           "key": "Content-Type",
